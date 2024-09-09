@@ -26,12 +26,12 @@ const originalText = "Darken";
 const changeText = "Lighten";
 
 btn.addEventListener('click',(e) => {
-    if(btn.textContent === originalText){
-        btn.setAttribute("dark","light");
+    if(btn.getAttribute('class') === 'dark'){
+        btn.setAttribute("class","light");
         btn.textContent = changeText;
         overlay.style.backgroundColor = "rgb(0,0,0,0.5)";
     }else{
-        btn.setAttribute("light","dark");
+        btn.setAttribute("class","dark");
         btn.textContent = originalText;
         overlay.style.backgroundColor = "rgb(0 0 0 / 0%)";
     }
