@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript課題4-1_工藤</title>
+    <link rel="stylesheet"href="stylesheet.css">
+    <link href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/9e396dd779.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    <section>
+        <div class="accordion">
+          <div class="menu js-menu">Q1.HTMLとは何ですか？</div>
+          <div class="contents mb-1">A1.ウェブサイトを記述するための言語です。 インターネットのサイトは、HTMLを使って文章のように記述されています。 ブラウザは、HTMLで書かれた文章（ソース）を読み込むことで、その内容に従って、サイトのホームページを表示しています</div>
+          <div class="menu js-menu">Q2.CSSとは何ですか？</div>
+          <div class="contents mb-1">A2.CSSとはスタイルシートのことです。スタイルシートとは、一言でいうなら「Webページのレイアウトを定義する技術」です。</div>
+          <div class="menu js-menu mt-5">Q1.BootStrapとは何ですか？</div>
+          <div class="contents mb-1">1.HTML/CSS/JavaScriptから構成されるCSSフレームワークです。Bootstrapの⽬的として、何度も同じCSSを書かないことが挙げられます。つまり、Bootstrapでは、webページでよく使われるボタンやフォーム、flexboxなどのレイアウトがあらかじめ保存されているので、CSSを書かずともHTML側で呼び出すことができ、ある程度の品質のレイアウトを作成することができます。Bootstrapを使うと開発を⾼速化することができるので、コードを書くこと⾃体にあまり時間をかけたくない⽅におすすめです。</div>
+          <div class="menu js-menu">Q2.JavaScriptとは何ですか？</div>
+          <div class="contents">A2.JavaScriptは「スクリプト言語」と呼ばれる類のプログラミング言語です。 スクリプト言語が分からない人は、ちょっと間違った説明ですが「書くのが簡単なプログラミング言語」と解釈してください。 書いて動かすまでの手間が、普通のプログラミング言語に比べて少なくて済みます。</div>
+        </div>
+      </section>
+
+</body>
+<script>
+const menu = document.querySelectorAll(".js-menu");
+
+function toggle() {
+  const content = this.nextElementSibling;
+  this.classList.toggle("is-active");
+  content.classList.toggle("is-open");
+}
+
+for (let i = 0; i < menu.length; i++) {
+  menu[i].addEventListener("click", toggle);
+}
+
+</script>

@@ -1,0 +1,308 @@
+/*========= 
+  hedderのCSS
+ ===============*/
+
+
+/*========= 上部固定させるためのCSS ===============*/
+#header{
+  height: 70px;/*高さ指定*/
+  width:100%;/*横幅指定*/
+  /*以下はレイアウトのためのCSS*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:#333;
+  color:#fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/*JSを使いfixedクラスが付与された際の設定*/
+#header.fixed{
+  position: fixed;/*fixedを設定して固定*/
+    z-index: 999;/*最前面へ*/
+    top:0;/*位置指定*/
+    left:0;/*位置指定*/
+}
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+h1{
+  font-size:1.2rem;
+}
+
+.logo {
+  font-weight: bold;
+  color: red;
+  font-size: 45px;
+  font-family: 'Mr Dafoe', cursive;
+}
+
+nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li a{
+  display: block;
+  text-decoration: none;
+  color: #666;
+  padding:10px;
+  transition:all 0.3s;
+}
+
+nav ul li.current a,
+nav ul li a:hover{
+  color:#fff; 
+}
+
+
+section{
+  padding:30px;
+}
+
+section:nth-child(2n){
+  background:#f3f3f3; 
+}
+
+
+/*===============
+ 背景のCSS
+  ===============*/
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+#wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+  }
+  .h1{
+    color:black;
+  }
+  
+
+  
+  /*========= particle js を描画するエリア設定 ===============*/
+  
+  html,body{
+    height: 100%;/*高さを100%にして描画エリアをとる*/
+  }
+  
+  #particles-js{ 
+    position:fixed;/*描画固定*/
+    z-index:-1;/*描画を一番下に*/
+    width: 100%;
+    height: 100%;
+    background-color:#FFFFEE	;/*背景色*/
+  }
+  
+  #wrapper{
+    position: relative;/*描画を#particles-jsよりも上にするためposition:relative;を指定*/
+    z-index: 1;/*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
+    width:100%;
+    height: 100%;
+  }
+
+
+
+  
+
+
+
+  
+  /*==================================================
+  じわっ
+  ===================================*/
+  
+  .blur{
+    animation-name:blurAnime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+  }
+  
+  @keyframes blurAnime{
+    from {
+    filter: blur(10px);
+    transform: scale(1.02);
+    opacity: 0;
+    }
+  
+    to {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+    }
+  }
+   
+  .blurTrigger{
+      opacity: 0;
+  }
+
+    /*==================================================
+  見出しデザイン
+  ===================================*/
+  .heading02 {
+    position: relative;
+    text-align: center;
+    border-bottom: 5px solid #dddddd;
+  }
+  
+  .heading02::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 5px;
+    background-color: #F4A460;
+  }
+
+
+
+
+
+  /*===============
+   流れるテキスト
+    ===============*/
+/*========= レイアウトのためのCSS ===============*/
+
+h4{
+    margin: 20px;
+    overflow: hidden;/*左右アニメーションで画面からはみ出る際に出る横スクロールバーを隠す*/
+  }
+  
+  /*========= 流れるテキスト ===============*/
+  
+  /*全共通*/
+  
+  .slide-in {
+    overflow: hidden;
+      display: inline-block;
+  }
+  
+  .slide-in_inner {
+    display: inline-block;
+  
+  }
+  
+  /*左右のアニメーション*/
+  .leftAnime{
+      opacity: 0;/*事前に透過0にして消しておく*/
+  }
+  
+  .slideAnimeLeftRight {
+    animation-name:slideTextX100;
+    animation-duration:0.8s;
+    animation-fill-mode:forwards;
+      opacity: 0;
+  }
+  
+  @keyframes slideTextX100 {
+    from {
+    transform: translateX(-100%); /*要素を左の枠外に移動*/
+          opacity: 0;
+    }
+  
+    to {
+    transform: translateX(0);/*要素を元の位置に移動*/
+      opacity: 1;
+    }
+  }
+  
+  .slideAnimeRightLeft {
+    animation-name:slideTextX-100;
+    animation-duration:0.8s;
+    animation-fill-mode:forwards;
+      opacity: 0;
+  }
+  
+  
+  @keyframes slideTextX-100 {
+    from {
+    transform: translateX(100%);/*要素を右の枠外に移動*/
+      opacity: 0;
+    }
+  
+    to {
+    transform: translateX(0);/*要素を元の位置に移動*/
+      opacity: 1;
+    }
+  }
+
+
+  h4 {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px #F4A460;/*左線*/
+  }
+
+
+  
+/*===============
+　画像の拡大
+ ===============*/
+
+.zoomIn img{
+    transform: scale(1);
+    transition: .3s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+  }
+  
+  .zoomIn a:hover img{/*hoverした時の変化*/
+    transform: scale(1.2);/*拡大の値を変更したい場合はこの数値を変更*/
+  }
+  
+  /*　画像のマスク　*/
+  
+  .mask{
+      display: block;
+      line-height: 0;/*行の高さを0にする*/
+      overflow: hidden;/*拡大してはみ出る要素を隠す*/
+  }
+  
+  /*========= レイアウトのためのCSS ===============*/
+  
+  a{
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .lead{
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  /*画像のレスポンシブ*/
+  
+  img{
+    width:100%;
+    height: auto;
+  }
+  
+  /*　横幅　*/
+  
+  .zoomIn{
+      width:70%;
+      margin: 0 auto;/*中央揃え*/
+  }
+
+
+
+
+
+
+
+
+
+  
+  
+  .container ul li{
+    list-style: none;
+   
+    }

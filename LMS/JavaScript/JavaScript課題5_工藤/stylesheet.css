@@ -1,0 +1,808 @@
+
+
+/*========= ナビゲーションのためのCSS ===============*/
+
+
+#header{
+    z-index: 9999;
+    position: fixed;  /* 位置を固定する */
+    top: 0;  /* 固定する位置を指定 */
+    left: 0;  /* 固定する位置を指定 */
+    width:100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    align-items:center;
+    height:100px;
+    }
+
+@media screen and (min-width:768px){
+    #header{
+        z-index: 9999;
+        position: fixed;  /* 位置を固定する */
+        top: 0;  /* 固定する位置を指定 */
+        left: 0;  /* 固定する位置を指定 */
+        width:100%;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        display:flex;
+        align-items:center;
+        height:100px;
+    }
+
+    
+    .logo{
+        margin-right:auto;
+        margin-left:20px;
+        align-items:center;
+        }
+        
+    .logo a{
+        text-decoration: none;
+        color: #333;
+        }
+    
+    #g-nav-pc{
+        text-align: center;
+        }
+
+    #g-nav-pc ul{
+        margin: 0 auto;
+        padding: 0 ;
+        justify-content:center;       
+        }
+
+    #g-nav-pc ul li{
+        list-style: none;
+        display: inline-block;
+        margin-left:40px;
+        }
+
+    #g-nav-pc ul li a{
+        text-decoration: none;
+        color: #333;
+        }
+    
+    #g-nav-pc ul li a:hover{
+        color: #E7DA66;
+        }
+    #g-nav-sm{
+        display: none;
+        }
+
+    }
+
+
+
+@media screen and (max-width:768px){
+    .logo{
+        margin-right:auto;
+        margin-top:15px;
+        margin-left:20px;
+        align-items:center;
+
+    }
+        
+    .logo a{
+        text-decoration: none;
+        color: #333;
+        }
+
+    #g-nav-sm{
+        /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+        position:fixed;
+        z-index: 999;
+        /*ナビのスタート位置と形状*/
+        top:0;
+        right: -120%;
+        width:40%;
+        height: 100vh;/*ナビの高さ*/
+        background-color: rgba(255, 255, 255, 0.8);
+        
+    /*動き*/
+        transition: all 0.1s;
+        }
+
+    /*アクティブクラスがついたら位置を0に*/
+    #g-nav-sm.panelactive{
+        right: 0;
+        }
+
+
+    /*ナビゲーション*/
+    #g-nav-sm ul {
+        /*ナビゲーション天地中央揃え*/
+        position: absolute;
+        z-index: 999;
+        top:25%;
+        left:20%;
+        transform: translate(-50%,-50%);
+        
+        }
+
+    /*リストのレイアウト設定*/
+
+    #g-nav-sm li{
+        list-style: none;
+    
+        }
+
+    #g-nav-sm li a{
+        color: #66cdaa;
+        text-decoration: none;
+        padding:10px;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: bold;
+    
+        }
+
+    /*========= ボタンのためのCSS ===============*/
+
+    .openbtn1{
+        position:fixed;
+        z-index: 9999;/*ボタンを最前面に*/
+        top:30px;
+        right: 30px;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        }
+    
+    /*×に変化*/  
+    .openbtn1 span{
+        display: inline-block;
+        transition: all .1s;
+        position: absolute;
+        left: 14px;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #66cdaa;
+        width: 50%;
+        }
+
+    .openbtn1 span:nth-of-type(1) {
+        top:10px; 
+        }
+
+    .openbtn1 span:nth-of-type(2) {
+        top:23px;
+        }
+
+    .openbtn1 span:nth-of-type(3) {
+        top:36px;
+        }
+
+    .openbtn1.active span:nth-of-type(1) {
+        top: 18px;
+        left: 18px;
+        transform: translateY(6px) rotate(-45deg);
+        width: 50%;
+        }
+
+    .openbtn1.active span:nth-of-type(2) {
+        opacity: 0;
+        }
+
+    .openbtn1.active span:nth-of-type(3){
+        top: 30px;
+        left: 18px;
+        transform: translateY(-6px) rotate(45deg);
+        width: 50%;
+        }
+
+    #g-nav-pc{
+        display: none;
+        }
+
+
+}
+
+
+
+
+.fadeUp1{
+    animation-name:fadeUp1Anime;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+@keyframes fadeUp1Anime{
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+        }
+    
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        }
+    }
+
+
+    /* 上から */
+
+.fadeDown1{
+    animation-name:fadeDown1Anime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+        
+@keyframes fadeDown1Anime{
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+        }
+        
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        }
+    }
+
+
+/*========= スライドのためのCSS ===============*/
+
+.container.img {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    }
+
+.container.img p{
+    position: absolute;/*絶対配置*/
+    color: white;/*文字は白に*/
+    font-weight: bold;
+    top:580px;
+    margin:50px;
+    padding:0;
+    text-shadow: 0px 0px 11px #1f1f1f;
+    }
+.container.img span{
+    color:#E7DA66;
+    }
+  
+    .image {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    animation: change-img-anim 25s infinite;
+    
+    min-height: 100vh;
+    object-fit: cover;
+
+    }
+  
+.image:nth-of-type(1) {
+    animation-delay: 0s;
+    }
+.image:nth-of-type(2) {
+    animation-delay: 5s;
+    }
+.image:nth-of-type(3) {
+    animation-delay: 10s;
+    }
+.image:nth-of-type(4) {
+    animation-delay: 15s;
+    }
+.image:nth-of-type(5) {
+    animation-delay: 20s;
+    }
+  
+  @keyframes change-img-anim {
+    0%{ opacity: 0;}
+	15%{ opacity: 1;}
+	25%{ opacity: 1;}
+	30%{ opacity: 0;}
+	100%{ opacity: 0;}
+    }
+
+
+   
+/*========= OurServiceのCSS ===============*/
+.container-fluid.OurService .area{
+    display:flex;
+    justify-content:center;
+    }   
+
+.img.OurService-1{
+    max-width:100%;
+    z-index: 1;
+    }
+.img.OurService-2{
+    max-width:100%;
+    z-index: 1;
+    }
+.box1{
+    max-width:100%;
+    padding: 50px;
+    margin-left:-50px;
+    z-index: 2;
+  }
+  .box2{
+    max-width:100%;
+    padding: 50px;
+    margin-right:-50px;
+    margin-left:50px;
+    z-index: 2;
+  }
+
+/*========= OurVisionのCSS ===============*/
+
+.container-fluid.OurVision .area{
+    display:flex;
+    justify-content:center;
+    z-index: 3;
+    }
+
+.container-fluid.OurVision{
+    position: relative;
+    z-index: 1;
+    background-size:cover;
+    background-position: center;
+    background-image:url(https://cdn.pixabay.com/photo/2015/09/05/23/11/macbook-926121_1280.jpg);
+    min-height: 100vh;
+    }
+
+.container-fluid.OurVision::after{
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    opacity: 0.4;
+    }
+
+.container-fluid.OurVision h2{
+
+        position: absolute;
+        z-index: 3;
+        top: 150px;
+        } 
+
+
+
+.container-fluid.OurVision h1{
+
+    position: absolute;
+    z-index: 3;
+    top: 350px;
+    }       
+.container-fluid.OurVision .big-box{
+
+    position: absolute;
+    z-index: 3;
+    top: 600px;
+    }
+
+.container-fluid.OurVision h4{
+    color:#66cdaa;
+    z-index: 3;
+    }
+
+/*========= NewsのCSS ===============*/
+
+.container.News .area{
+    display:flex;
+    justify-content:center;
+    }
+
+.news-list{
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+    }
+.news-list .item{
+    border-bottom: 1px solid #CCC;
+    align-items:center;
+    }
+
+
+.news-list .item a{
+    text-decoration: none;
+    color: #333;
+    
+    }
+
+.news-list .item img{
+    width:20%;
+    padding-top:15px;
+    padding-bottom:15px;
+    }
+.news-list .item .big-box{
+    width:400px;
+    display:flex;
+    flex-wrap:wrap;
+    }
+.news-list .item .date{
+    width:80px;
+    font-size: 10px;
+    color: #999;
+    
+    }
+.news-list .item .category{
+    width:80px;
+    font-size:12px;
+    text-align: center;
+    }
+
+
+.news-list .item p.category:hover{
+    color:#999;
+
+    }
+.news-list .item .title{
+    width:auto;
+    font-size:15px;
+
+
+  }
+.news-list .item p.title:hover{
+    color:#66cdaa;
+
+  }
+
+ 
+  
+  /* 装飾 */
+   
+*{
+    box-sizing: border-box;
+    }
+a{
+    text-decoration: none;
+    }
+body{
+    margin: 20px;
+    }
+
+  /*========= AboutUsのCSS ===============*/
+.container.AboutUs .area{
+    display:flex;
+    justify-content:center;
+    }
+
+/*========= RecruitのCSS ===============*/
+.container.Recruit .area{
+    display:flex;
+    justify-content:center;
+    
+    }
+
+.container.Recruit h4 span{
+    color:#66cdaa;
+}
+
+
+.big-box1{
+    display:flex;
+    background-color: white;
+    margin:50px;
+    padding:50px;
+    
+    }
+
+.small-box1{
+    display:flex;
+    flex-wrap:wrap; 
+    justify-content: space-around;
+    gap: 20px 30px;/*縦に20px,横に30pxの余白を指定*/
+    
+
+    }
+
+
+
+.box-1{
+    display:flex;
+    justify-content: center;
+    border:1px solid #CCC;
+    align-items: center;
+    margin-top:50px;
+    }
+.box-1:hover{
+    background-color: #66cdaa;
+
+    }  
+.arrow_right-1 {
+    display: inline-block;
+    position: relative;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+    color: #1B1B1B;
+    transition: transform ease .3s;
+    }
+.arrow_right-1:hover {
+     cursor: pointer;
+     text-decoration: none;
+     color:white;
+    }
+.arrow_right-1 span {
+    display: inline-block;
+    text-decoration: none;	
+    transition: transform ease .3s;
+    color:#66cdaa;
+    }
+.arrow_right-1:hover span{
+    cursor: pointer;
+    text-decoration: none;
+    transform: translateX(6px);
+    color:white;
+    }
+
+
+
+
+
+/*========= footerのCSS ===============*/
+
+@media screen and (max-width:768px){
+    .container-fluid.footer{
+        background-color: #333;
+        width: 100%;
+        height: 300px;
+        padding:50px;
+        }
+
+}
+@media screen and (min-width:768px){
+    .container-fluid.footer{
+        background-color: #333;
+        width: 100%;
+        height: 250px;
+        padding:50px;
+        }
+}
+
+    .container-fluid.footer ul{
+    display:flex;
+    justify-content: end;
+    margin-top:0;
+    padding: 0 ;
+         
+    }
+
+    .container-fluid.footer ul li{
+    list-style: none;
+    text-decoration: none;
+    display: inline-block;
+    margin-left:40px;
+    }
+
+    .container-fluid.footer ul li a{
+    text-decoration: none;
+    color: white;
+    }
+   
+    .container-fluid.footer ul li a:hover{
+    color: #66cdaa;
+    }
+@media screen and (max-width:576px){
+    .small-box2{
+        display: flex;
+        justify-content: end;
+        flex-wrap: wrap;
+        gap: 20px 30px;/*縦に20px,横に30pxの余白を指定*/
+        height: 50px;
+        align-items: center;
+        }
+}
+@media screen and (min-width:576px) and (max-width:768px){
+    .small-box2{
+        display: flex;
+        justify-content: space-around;
+        height: 50px;
+        align-items: center;
+    
+        
+        }
+}
+@media screen and (min-width:768px) and (max-width:992px){
+    .small-box2{
+        display: flex;
+        justify-content: end;
+        flex-wrap: wrap;
+        gap: 20px 30px;/*縦に20px,横に30pxの余白を指定*/
+        height: 50px;
+        align-items: center;
+        
+        }
+}
+@media screen and (min-width:992px){
+    .small-box2{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px 30px;/*縦に20px,横に30pxの余白を指定*/
+        height: 50px;
+        align-items: center;
+        }
+}
+
+.box-2{
+    display:inline-block;
+    flex-wrap: wrap;
+    border: 1px solid white;
+    }
+
+
+
+@media screen and (max-width:768px){
+    .container-fluid.footer .small-box3{
+        color:#CCC;
+       margin-top:30px;
+    }
+}
+
+
+
+
+
+
+.arrow_right-2 {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    color: white;   
+    transition: transform ease .3s;
+    }
+.arrow_right-2:hover {
+     cursor: pointer;
+     text-decoration: none;
+     color:white;
+     background-color:#66cdaa;
+    }
+.arrow_right-2 span {
+    display: inline-block;
+    text-decoration: none;	
+    transition: transform ease .3s;
+    color:#66cdaa;
+    }
+.arrow_right-2:hover span{
+    cursor: pointer;
+    text-decoration: none;
+    transform: translateX(6px);
+    color:white;
+
+    }
+
+/*========= NewsbtnのCSS ===============*/
+  .small-box{
+    display:flex;
+    justify-content: end;
+    }
+  
+  .arrow_btn {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    padding: 0.8em;
+    text-align: center;
+    text-decoration: none;
+    color: #1B1B1B;
+    
+    transition: transform ease .3s;
+    }
+.arrow_btn:hover {
+     cursor: pointer;
+     text-decoration: none;
+     color:#66cdaa;
+    }
+.arrow_btn span {
+    display: inline-block;
+    text-decoration: none;	
+    transition: transform ease .3s;
+    color:#66cdaa;
+    }
+.arrow_btn:hover span{
+    cursor: pointer;
+    text-decoration: none;
+    transform: translateX(6px);
+    }
+
+
+
+  /*========= アニメーションのためのCSS ===============*/
+
+/* 下から */
+
+.fadeUp{
+    animation-name:fadeUpAnime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime{
+      from {
+        opacity: 0;
+      transform: translateY(100px);
+      }
+    
+      to {
+        opacity: 1;
+      transform: translateY(0);
+      }
+    }
+
+/* 上から */
+
+.fadeDown{
+    animation-name:fadeDownAnime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeDownAnime{
+      from {
+        opacity: 0;
+      transform: translateY(-100px);
+      }
+    
+      to {
+        opacity: 1;
+      transform: translateY(0);
+      }
+    }
+/* 左から */
+
+.fadeLeft{
+    animation-name:fadeLeftAnime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeLeftAnime{
+      from {
+        opacity: 0;
+      transform: translateX(-100px);
+      }
+    
+      to {
+        opacity: 1;
+      transform: translateX(0);
+      }
+    }
+
+
+      /* アニメーションスタートの遅延時間を決めるCSS*/
+      .delay-time02{  
+        animation-delay: 0.2s;
+      }
+      .delay-time04{  
+        animation-delay: 0.4s;
+      }
+      .delay-time06{  
+        animation-delay: 0.6s;
+      }
+      .delay-time08{  
+        animation-delay: 0.8s;
+      }
+      .delay-time10{  
+        animation-delay: 1.0s;
+      }
+
+            
+
+
+
+
+/*========= footerのCSS ===============*/
+
+#footer{
+  background:#333;
+  padding:20px;
+}
+

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Apply JavaScript example</title>
+        <!-- <script>
+            document.addEventListener("DOMContentLoaded",() =>{
+                function createParagraph(){
+                    const para = document.createElement("p");
+                    para.textContent = "ボタンが押されました！";
+                    document.body.appendChild(para);
+                }
+
+                const buttons =
+                document.querySelectorAll("button");
+
+                for(const button of buttons) {
+                    button.addEventListener("click", createParagraph);
+                }
+            });
+        </script> -->
+        <!-- <script src="script.js" defer></script> -->
+        <style>
+            /* p {
+                color: purple;
+                margin: 0.5em 0;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            canvas {
+                border:1px solid black;
+            } */
+
+            .msgBox {
+                position:absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 242px;
+                background: #eee;
+            }
+
+            .msgBox p {
+                line-height: 1.5;
+                padding: 10px 20px;
+                color: #333;
+                padding-left: 82px;
+                background-position: 25px center;
+                background-repeat: no-repeat;
+            }
+
+            .msgBox button {
+                background: none;
+                border: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 1.1rem;
+                color:#aaa;
+            }
+
+            input{
+                font-size: 2em;
+                margin: 10px 1px 0;
+            }
+
+            button {
+                margin: 10px;
+            }
+            div {
+            width: 100%;
+            height: 100%;
+            background-color: #eee;
+            }
+
+            .hidden {
+            display: none;
+            }
+
+            div video {
+            padding: 40px;
+            display: block;
+            width: 400px;
+            margin: 40px auto;
+            }
+
+            .tile{
+                height: 100px;
+                width: 25%;
+                float: left;
+            }
+
+            p{
+                color:purple;
+                margin:0.5em 0;
+            }
+
+            *{
+                box-sizing: border-box;
+            }
+
+            button {
+                display:block;
+                margin: 20px 0 20px 20px;
+            }
+
+            .button-bar{
+                padding:20px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <button>Display message box</button> -->
+
+        <!-- <input class="numberInput" type="text">
+        <p></p> -->
+
+        <!-- <button>色を変更</button> -->
+
+        <!-- <input id="textBox" type="text" />
+        <div id="output"></div> -->
+
+        <!-- <form>
+            <div>
+                <label for="fname">姓:</label>
+                <input id="fname" type="text"/>
+            </div>
+            <div>
+                <label for="lname">名:</label>
+                <input id="lname" type="text" />
+            </div>
+            <div>
+                <input id="submit" type="submit" />
+            </div>
+        </form>
+        <p></p> -->
+
+        <!-- <div id="container">
+            <button>クリックしてください</button>
+        </div>
+        <pre id="output"></pre> -->
+
+        <!-- <button>動画を表示</button>
+
+        <div class="hidden">
+            <video>
+                <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                type="video/webm" />
+                <p>
+                お使いのブラウザーは HTML 動画に対応していません。代わりに<a
+                    href="rabbit320.mp4"
+                    >動画へのリンク</a
+                >をご利用ください。
+                </p>
+            </video>
+        </div> -->
+
+        <!-- <div id="container">
+            <button>クリックしてください</button>
+        </div>
+        <pre id="output"></pre> -->
+
+        <!-- <div id="container">
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+        </div> -->
+
+        <section class="preview">
+        </section>
+
+        <div class="button-bar">
+            <button data-color="red">Red</button>
+            <button data-color="yellow">Yellow</button>
+            <button data-color="green">Green</button>
+            <button data-color="purple">Purple</button>
+        </div>
+
+        <!-- <canvas width="480" height="320" tabindex="0"> -->
+
+        </canvas>
+
+        <!-- <button class="button">Machine is off</button> -->
+
+        <!-- <script>
+            //イベント1
+            const btn = document.querySelector('button');
+
+            const originalText = "Machine is off";
+            const changeText = "Machine is on";
+
+            btn.addEventListener("click", function(event) {
+                if(btn.textContent === originalText){
+                    btn.textContent = changeText;
+                    event.target.style.color = 'red';
+                }else{
+                    btn.textContent = originalText;
+                    event.target.style.color = 'black';
+                }
+            });
+
+            // const originalText = "Machine is off";
+            // const changeText = "Machine is on";
+
+            // btn.addEventListener('click', function() {
+            //     if(btn.textContent === originalText){
+            //         btn.textContent = changeText;
+            //     }else{
+            //         btn.textContent = originalText;
+            //     }
+            // });
+        </script> -->
+        <!-- <script>
+            //イベント2
+            const canvas = document.querySelector('canvas');
+            const ctx = canvas.getContext('2d');
+
+            function drawCircle(x,y,size){
+                ctx.fillStyle ='white';
+                ctx.fillRect(0,0,canvas.width, canvas.height);
+
+                ctx.beginPath();
+                ctx.fillStyle = 'black';
+                ctx.arc(x,y,size, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            let x = 50;
+            let y = 50;
+            const size = 30;
+
+            drawCircle(x,y, size);
+
+            canvas.addEventListener("keydown",(event)=>{
+                if(event.key ==="w"){
+                    drawCircle(x,y+10,size);
+                }else if(event.key === "a"){
+                    drawCircle(x-10,y,size)
+                }else if(event.key === "s"){
+                    drawCircle(x,y+10,size);
+                }else if(event.key === "d"){
+                    drawCircle(x+10,y,size);
+                }else{
+                    drawCircle(x,y,size);
+                }
+            });
+        </script> -->
+        <script>
+            //イベント3
+            const buttonBar = document.querySelector('.button-bar');
+
+            buttonBar.addEventListener("click", (e) => {
+                if(event.target.tagName === 'BUTTON'){
+                    const newColor = event.target.getAttribute('data-color');
+                    buttonBar.style.backgroundColor = newColor;
+                }
+            });
+        </script>
+        <script>
+        </script>
+
+
+
+        <!-- <script>
+        function displayMessage(msgText, msgType){
+            const body = document.body;
+
+            const panel = document.createElement("div");
+            panel.setAttribute("class", "msgBox");
+            body.appendChild(panel);
+
+            const msg = document.createElement("p");
+            msg.textContent = msgText;
+            panel.appendChild(msg);
+
+            const closeBtn = document.createElement("button");
+            closeBtn.textContent = "x";
+            panel.appendChild(closeBtn);
+
+            closeBtn.addEventListener("click", () =>
+                panel.parentNode.removeChild(panel),
+            );
+            if(msgType === "warning"){
+                msg.style.backgroundImage = "url(icons/warning.png)";
+                panel.style.backgroundColor = "red";
+            }else if (msgType === "chat"){
+                msg.style.backgroundImage = "url(icons/chat.png)";
+                panel.style.backgroundColor = "aqua";
+            }else{
+                msg.style.paddingLeft = "20px";
+            }
+        }
+        const btn = document.querySelector("button");
+        btn.addEventListener("click", () =>
+            displayMessage("受信箱がほぼ一杯です。メールを削除してください","warning"),
+            // displayMessage("ブライアン: やあ、元気？", "chat"),
+        );
+
+        </script> -->
+
+        <!-- <script>
+            const input = document.querySelector('.numberInput');
+            const para = document.querySelector('p');
+
+            function squared(num){
+                return num * num;
+            }
+
+            function cubed(num){
+                return num * num * num;
+            }
+
+            function factorial(num){
+                if(num<0) return undefined;
+                if(num===0) return 1;
+                let x = num - 1;
+                while (x>1){
+                    num *= x;
+                    x--;
+                }
+                return num;
+            }
+
+            function squareRoot(num){
+                return Math.sqrt(num);
+            }
+
+            function circumference(num){
+                return Math.floor(2 * Math.PI * num);
+            }
+
+            input.addEventListener("change",() => {
+                const num = parseFloat(input.value);
+                if(isNaN(num)){
+                    para.textContent = "数値を入力してください。";
+                }else{
+                    para.textContent = `${num}の二乗は${squared(num)}です。`;
+                    para.textContent += `${num}の三乗は${cubed(num)}です。`;
+                    para.textContent += `${num}の階乗は${factorial(num)}です。`;
+                    para.textContent += `${num}の平方根は${squareRoot(num)}です。`;
+                    para.textContent += `${num}の円周は${circumference(num)}です。`;
+                }
+            });
+        </script> -->
+
+        <!-- <script>
+            const btn = document.querySelector("button");
+
+            const controller = new AbortController();
+
+            function random(number){
+                return Math.floor(Math.random() * (number + 1));
+            }
+
+            // btn.addEventListener("mouseover", () => {
+            //         const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+            //         document.body.style.backgroundColor = rndCol;
+            //     },
+            //     {signal: controller.signal}
+            // );
+
+
+            function changeBackground(){
+                const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+                document.body.style.backgroundColor = rndCol;
+            }
+            btn.addEventListener("mouseover",changeBackground);
+            btn.removeEventListener("click", changeBackground);
+        </script> -->
+
+        <!-- <script>
+            const btn = document.querySelector("button");
+
+            function random(number){
+                return Math.floor(Math.random() * (number + 1));
+            }
+
+            // btn.onclick = () => {
+            //     const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+            //     document.body.style.backgroundColor = rndCol;
+            // };
+
+            // function bgChange(){
+            //     const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+            //     document.body.style.backgroundColor = rndCol;
+            // }
+
+            // btn.onclick = bgChange;
+
+            function bgChange(e){
+                const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+                e.target.style.backgroundColor = rndCol;
+                console.log(e);
+            }
+
+            btn.addEventListener("click", bgChange);
+        </script> -->
+
+        <!-- <script>
+            const textBox = document.querySelector("#textBox");
+            const output = document.querySelector("#output");
+            textBox.addEventListener("keydown",(event) => {
+                output.textContent = `"${event.key}" が押されました。`;
+            });
+        </script> -->
+
+        <!-- <script>
+            const form = document.querySelector("form");
+            const fname = document.getElementById("fname");
+            const lname = document.getElementById("lname");
+            const para = document.querySelector("p");
+
+            form.addEventListener("submit", (e) => {
+                if(fname.value === "" || lname.value === ""){
+                    e.preventDefault();
+                    para.textContent = "You need to fill in both names!";
+                }
+            })
+        </script> -->
+
+        <!-- <script>
+            //親要素にリスナーを設定
+            const output = document.querySelector("#output");
+            function handleClick(e){
+                output.textContent += `${e.currentTarget.tagName} 要素をクリックしました\n`;
+            }
+
+            const container = document.querySelector("#container");
+            const button = document.querySelector("button");
+
+            document.body.addEventListener("click",handleClick);
+            container.addEventListener("click", handleClick);
+            button.addEventListener("click",handleClick);
+        </script> -->
+
+        <!-- <script>
+            const btn = document.querySelector("button");
+            const box = document.querySelector("div");
+            const video = document.querySelector("video");
+
+            btn.addEventListener("click", () => box.classList.remove("hidden"));
+
+            video.addEventListener("click", (e) => {
+                event.stopPropagation();
+                video.play();
+            });
+            box.addEventListener("click", () => box.classList.add("hidden"));
+
+        </script> -->
+
+        <!-- <script>
+            const output = document.querySelector("#output");
+            function handleClick(e){
+                output.textContent += `${e.currentTarget.tagName}要素をクリックしました\n`;
+            }
+
+            const container = document.querySelector("#container");
+            const button = document.querySelector("button");
+
+            document.body.addEventListener("click", handleClick,{capture: true});
+            container.addEventListener("click", handleClick, {capture: true});
+            button.addEventListener("click",handleClick);
+        </script> -->
+        <!-- <script>
+            function random(number){
+                return Math.floor(Math.random() * number);
+            }
+
+            function bgChange(){
+                const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+                return rndCol;
+            }
+
+            const container = document.querySelector("#container");
+
+            container.addEventListener("click",(event) => {
+                event.target.style.backgroundColor = bgChange();
+            });
+        </script> -->
+
+
+
+
+    </body>
+
+    <!-- <script>
+        const myText = "今日は寒い";
+        const newString = myText.replace("寒い", "暖かい");
+        console.log(newString);
+    </s> -->
+</html>

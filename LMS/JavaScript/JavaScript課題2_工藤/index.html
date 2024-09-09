@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript課題2_工藤</title>
+</head>
+<body>
+<script>
+
+const cafe={
+    name:"Re-Lightカフェ",
+    businessHours:{
+        opening:"10:00(AM)",
+        closing:"8:00(PM)",
+    },
+    menus:["コーヒー","紅茶","チョコレートケーキ"],
+}
+
+//課題1
+console.log(`店名:${cafe.name}`);
+console.log(`営業時間:${cafe.businessHours.opening}から${cafe.businessHours.closing}`)
+//課題2
+for(let i=0;i<cafe.menus.length;i++){
+    console.log(cafe.menus[i]);
+}
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dayキャンプ編</title>
+    <link rel="stylesheet"href="day.schedule.css">
+    <link href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/9e396dd779.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div id="wrapper">
+        <h1><span class="blurTrigger">キャンプの流れ Dayキャンプ編</span></h1>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <ul class="col-10">
+                <li class=""><span class="slide-in leftAnime"><span class="slide-in_inner leftAnimeInner">
+                    <h4 class="">◎-9:00  出発</h4></span></span>
+                </li>
+                <li class="mt-5 zoomIn">
+                    <a href="#">
+                        <span class="mask text-center"><img class="image" src="https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg"/></span>
+                    </a>
+                </li>
+                <li class="mt-5 text-center"><p class="">出発する時間はキャンプ場までの距離や渋滞、途中の休憩なども考慮して決めてください</p></li>
+            </ul>
+            
+
+        </div>
+    </div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-6/js/5-6.js"></script>
+<script>
+particlesJS("particles-js", {
+    "particles":{
+        "number":{
+            "value":30,//この数値を変更すると桜の数が増減できる
+            "density":{
+                "enable":true,
+                "value_area":1121.6780303333778
+            }
+        },
+        "color":{
+            "value":"#fff"
+        },
+        "shape":{
+            "type":"image",//形状は画像を指定
+            "stroke":{
+                "width":0,
+            },
+            "image":{
+                "src":"http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-6/img/flower.png",//画像を指定
+                "width":120,
+                "height":120
+            }
+        },
+        "opacity":{
+            "value":0.06409588744762158,
+            "random":true,
+            "anim":{
+                "enable":false,
+                "speed":1,
+                "opacity_min":0.1,
+                "sync":false
+            }
+        },
+        "size":{
+            "value":8.011985930952697,
+            "random":true,//サイズをランダムに
+            "anim":{
+                "enable":false,
+                "speed":4,
+                "size_min":0.1,
+                "sync":false
+            }
+        },
+        "line_linked":{
+            "enable":false,
+        },
+        "move":{
+            "enable":true,
+            "speed":7,//この数値を小さくするとゆっくりな動きになる
+            "direction":"bottom-right",//右下に向かって落ちる
+            "random":false,//動きはランダムにしない
+            "straight":false,//動きをとどめない
+            "out_mode":"out",//画面の外に出るように描写
+            "bounce":false,//跳ね返りなし
+            "attract":{
+                "enable":false,
+                "rotateX":281.9177489524316,
+                "rotateY":127.670995809726
+            }
+        }
+    },
+    "interactivity":{
+        "detect_on":"canvas",
+        "events":{
+            "onhover":{
+                "enable":false,
+            },
+            "onclick":{
+                "enable":false,
+            },
+            "resize":true
+        }
+    },
+    "retina_detect":false
+});
+</script>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+<script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/8-9/js/8-9.js"></script>
+<script>
+// blurTriggerにblurというクラス名を付ける定義
+
+function BlurTextAnimeControl() {
+  $('.blurTrigger').each(function(){ //blurTriggerというクラス名が
+    var elemPos = $(this).offset().top-50;//要素より、50px上の
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    if (scroll >= elemPos - windowHeight){
+    $(this).addClass('blur');// 画面内に入ったらblurというクラス名を追記
+    }else{
+    $(this).removeClass('blur');// 画面外に出たらblurというクラス名を外す
+    }
+    });
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+  BlurTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+  BlurTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+</script>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+<script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/8-2/js/8-2.js"></script>
+<script>
+function slideAnime(){
+    //====左に動くアニメーションここから===
+      $('.leftAnime').each(function(){ 
+        var elemPos = $(this).offset().top-50;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (scroll >= elemPos - windowHeight){
+          //左から右へ表示するクラスを付与
+          //テキスト要素を挟む親要素（左側）とテキスト要素を元位置でアニメーションをおこなう
+          $(this).addClass("slideAnimeLeftRight"); //要素を左枠外にへ移動しCSSアニメーションで左から元の位置に移動
+          $(this).children(".leftAnimeInner").addClass("slideAnimeRightLeft");  //子要素は親要素のアニメーションに影響されないように逆の指定をし元の位置をキープするアニメーションをおこなう
+        }else{
+          //左から右へ表示するクラスを取り除く
+          $(this).removeClass("slideAnimeLeftRight");
+          $(this).children(".leftAnimeInner").removeClass("slideAnimeRightLeft");
+          
+        }
+      });
+      
+    }
+    
+    // 画面をスクロールをしたら動かしたい場合の記述
+    $(window).scroll(function (){
+      slideAnime();/* アニメーション用の関数を呼ぶ*/
+    });// ここまで画面をスクロールをしたら動かしたい場合の記述
+  
+    // 画面が読み込まれたらすぐに動かしたい場合の記述
+    $(window).on('load', function(){
+      slideAnime();/* アニメーション用の関数を呼ぶ*/
+    });// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+</script>
+
+</body>
+</html>

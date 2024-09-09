@@ -1,0 +1,47 @@
+/*========= 
+  footerのCSS
+ ===============*/
+
+ .footer{
+    position: relative;
+    width:100%;
+    height:auto;
+    background-color: #666;
+
+ }
+.footer .cafe-logo{
+    display:flex;
+    justify-content: center;
+    margin-top:30px;
+    margin-left: auto;
+    margin-right: auto;
+    width:30%;
+    height:auto;  
+}
+.footer ul{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    list-style: none;
+    height:auto;
+}
+
+
+.footer ul li{
+    width:auto;
+    margin:20px;
+}
+.spacer {
+    width: 100%;
+    height:auto;
+  }
+
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+  
+.footer a:hover {
+    color: #000;
+}

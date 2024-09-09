@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript課題4-1_工藤</title>
+    <link rel="stylesheet"href="stylesheet.css">
+    <link href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/9e396dd779.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+    <main class="p-3">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link is-active">Tab-0</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">Tab-1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">Tab-2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">Tab-3</a>
+        </li>
+    </ul>
+
+    <div class="tab-contents border">
+        <div class="tab-contents__item show">
+            タブその０
+        </div>
+        <div class="tab-contents__item">
+            タブその１
+        </div>
+        <div class="tab-contents__item">
+            タブその２
+        </div>
+        <div class="tab-contents__item">
+            タブその３
+        </div>
+    </div>
+    </main>
+
+
+
+
+    
+<script>
+
+    // タブ
+const navLink = document.querySelectorAll(".nav-link");
+// タブコンテンツ
+const tabContent = document.querySelectorAll(".tab-contents__item");
+
+//DOMが読み込み終わったら
+document.addEventListener("DOMContentLoaded", function () {
+  for (let i = 0; i < navLink.length; i++) {
+    navLink[i].addEventListener("click", tabSwitch);
+  }
+
+  function tabSwitch() {
+    // activeクラスを削除
+    document.querySelectorAll(".is-active")[0].classList.remove("is-active");
+    this.classList.add("is-active");
+
+    //タブを配列にする
+    let tabArr = Array.from(navLink);
+
+    //クリックしたタブのインデックス番号を取得
+    let index = tabArr.indexOf(this);
+    
+    // show クラスを削除
+    document.querySelectorAll(".show")[0].classList.remove("show");
+
+    //タブのインデックスから同じインデックスのコンテンツにshowクラスを付与する
+    tabContent[index].classList.add("show");
+  }
+});
+
+
+
+
+</script>
+</body>
+</html>

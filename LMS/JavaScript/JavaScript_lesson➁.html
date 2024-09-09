@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript_lesson</title>
+</head>
+<body>
+<script>
+
+    const animals=["dog","cat","sheep"];
+    console.log(animals[0]);
+    console.log(animals[2]);
+    animals[2]="rabbit";
+    console.log(animals[2]);
+    
+    
+
+    const fruits=["apple","banana","orange"];
+    console.log(fruits[0]);
+    console.log(fruits[2]);
+    fruits[0]="grape";
+    console.log(fruits[0]);
+
+
+    const fruits1=["apple","banana","orange"];
+    for(let i=0;i<3;i++){
+        console.log(fruits1[i]);
+    }
+
+    const animals1=["dog","cat","sheep"];
+    for(let i=0;i<3;i++){
+        console.log(animals1[i]);
+    }
+
+    const fruits2=["apple","banana","orange"];
+    console.log(fruits2.length);
+
+    const fruits3=["apple","banana","orange"];
+    for(let i=0;i<fruits3.length;i++){
+        console.log(fruits3[i]);
+    }
+
+    const animals2=["dog","cat","sheep","rabbit","monkey","tiger","bear","elephant"];
+    console.log(animals2.length);
+    for(let i=0;i<animals2.length;i++){
+        console.log(animals2[i]);
+    }
+
+    const item={name:"手裏剣",price:300};
+    console.log(item);
+
+    const character={name:"John",age:14};
+    console.log(character);
+
+    console.log(item.name);
+
+    item.price=500;
+    console.log(item.price);
+
+    console.log(character.name);
+    character.age=20;
+    console.log(character.age);
+
+    const items1=[
+        {name:"手裏剣",price:300},
+        {name:"忍者刀",price:1200}
+    ];
+    console.log(items1[1]);
+
+    console.log(items1[1].price);
+
+    const characters=[
+        {name:"cat",age:14},
+        {name:"turtle",age:1000}
+    ];
+    console.log(characters[0]);
+    console.log(characters[1].name);
+
+
+    const characters1=[
+        {name:"cat",age:14},
+        {name:"turtle",age:100},
+        {name:"dog",age:5},
+    ];
+    for(i=0;i<characters1.length;i++){
+        console.log(`名前は${characters1[i].name}です`);
+        console.log(`${characters1[i].age}歳です`);
+    }
+
+    const animals3=["dog","cat","sheep"];
+    console.log(animals3[5]);
+    const character1={name:"cat",age:14};
+    console.log(character1.name);
+    console.log(character1.email);
+
+    const characters2=[
+        {name:"cat",age:14},
+        {name:"turtle",age:100},
+        {name:"dog",age:5},
+        {name:"sheep"},
+    ];
+    for(let i=0;i<characters2.length;i++){
+
+        const character=characters2[i];
+        console.log(`名前は${character.name}です`);
+        if(character.age===undefined){
+            console.log("年齢は秘密です");
+        }else{
+            console.log(`${character.age}歳です`);
+        }
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+:root{
+    --color: angry #e52258;
+    --small:0.5rem;
+}
+h3{
+    color:white;
+    text-align:center;
+}
+
+.box{
+    width:100px;
+    height:100px;
+    padding:var(--small);
+    margin:var(--small);   
+}
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.angry{
+    background-color:red;
+}
+.bad{
+    background-color:blue;
+}
+.sad{
+    background-color:skyblue;
+}
+.happy{
+    background-color:orange;
+}
+.disgusted{
+    background-color:brown;
+}
+.surprised{
+    background-color:yellow;
+}
+
+.box:hover{
+    background-color:rgba(238, 0, 255, 0.583);
+    opacity:0.7;
+}

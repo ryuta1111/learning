@@ -1,0 +1,266 @@
+/*========= 
+  topのCSS
+ ===============*/
+
+
+.container.top {
+    position: relative;
+    max-width: 100%;
+    min-height: 100%;
+    
+    }
+
+
+.container .image {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    object-fit: cover;
+    }
+  
+
+.container.top .cafe-logo{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width:40%;
+    height:auto;
+    
+    }
+@media screen and (max-width:768px){
+.container.top p{
+    position: absolute;/*絶対配置*/
+    color: white;/*文字は白に*/
+    font-weight: bold;
+    top:70%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    letter-spacing:0.3em;
+
+    }
+}
+
+
+@media screen and (min-width:768px){
+    .container.top p{
+        position: absolute;/*絶対配置*/
+        color: white;/*文字は白に*/
+        font-weight: bold;
+        top:85%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        letter-spacing:0.3em;
+    
+        }
+    }
+
+
+
+
+
+
+/*========= 
+  ConceptのCSS
+ ===============*/
+
+.container.Concept{
+    display:flex;
+    justify-content: center;
+}
+
+.container.Concept img{
+    width:80%;
+    height: auto;
+    border-radius: 20px;
+    display:flex;
+    justify-content:center;
+}
+
+.container ul li{
+    list-style: none;
+    }
+
+
+
+/*========= 
+  MenuのCSS
+ ===============*/
+
+
+.container.Menu img{   
+    width:80%;
+    height: auto;
+    border-radius: 20px;
+    }
+
+.container.Menu .img-pepper{  
+    width:20px;
+    height:20px;
+    }
+  
+
+.container.Menu ul li{
+    list-style: none;
+
+    }
+
+
+.container.Menu .input.quantity{
+    width:100px;
+}
+
+.btn-area{
+    display:flex;
+    justify-content:center;
+}
+
+.container.Menu input[class="menu-btn"]{
+    display:flex;
+    justify-content:center;
+    border-style:none;
+    color:white;
+    width:150px;
+    height:40px;
+    background-color: turquoise;
+    border-radius: 20px;
+
+}
+
+
+
+
+
+/*========= 
+  AccessのCSS
+ ===============*/
+
+ .container-fluid .Access ul{
+    color:white;
+ }
+
+ @media screen and (max-width:768px){
+ .container-fluid iframe{
+    aspect-ratio: 12/15; /*アスペクト比（縦横比）を指定*/
+  }
+
+}
+@media screen and (min-width:768px){
+    .container-fluid iframe{
+       aspect-ratio: 15/12; /*アスペクト比（縦横比）を指定*/
+     }
+   
+   }
+
+.container-fluid ul{
+    list-style: none;
+    background-color: #666;
+   
+}
+.container-fluid ul li p{
+    margin:0;
+    font-size: 13px;
+    color:white;
+}
+
+@media screen and (max-width:768px){    
+    .container-fluid ul{
+        height:auto;
+    }
+    .container-fluid ul li{
+
+        margin:50px;
+
+    }
+}
+
+@media screen and (min-width:768px){
+
+    .container-fluid ul li{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        margin:0;
+    }
+
+    
+
+}
+
+
+
+
+
+
+/*========= 
+  NewsのCSS
+ ===============*/
+
+
+ .news-list{
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+    width:100%;
+    }
+.news-list .item{
+    border-bottom: 1px solid #CCC;
+    display:flex;
+    align-items:center;
+    text-decoration: none;
+    color: #333;
+    }
+@media screen and (max-width:768px){    
+.news-list.img{
+    padding:10px;
+
+    }
+}
+@media screen and (min-width:768px){    
+.news-list.img{
+    padding:30px;
+    
+    }
+}
+
+.news-box{
+    display:flex;
+    align-items:center;
+}
+.news-list.ul li{
+    margin:10px;
+}
+    
+
+.date{
+    text-align:left;
+    font-size: 5px;
+    color: #999;
+    
+    }
+.category{
+    text-align:left;
+    font-size:5px;
+    }
+
+.info{
+    text-align:left;
+    font-size:15px;
+    font-weight: bold;
+  }
+
+.detail{
+    text-align:left;
+    font-size:12px;
+  }
+
+
+
+
+
+
+
+
+
+

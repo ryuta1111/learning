@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Apply JavaScript example</title>
+        <!-- <script>
+            document.addEventListener("DOMContentLoaded",() =>{
+                function createParagraph(){
+                    const para = document.createElement("p");
+                    para.textContent = "ボタンが押されました！";
+                    document.body.appendChild(para);
+                }
+
+                const buttons =
+                document.querySelectorAll("button");
+
+                for(const button of buttons) {
+                    button.addEventListener("click", createParagraph);
+                }
+            });
+        </script> -->
+        <!-- <script src="script.js" defer></script> -->
+        <style>
+            p {
+                color: purple;
+                margin: 0.5em 0;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            canvas {
+                border:1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div>
+            <button>Click me</button>
+        </div>
+        <div>
+            <button id="button_A">押してください</button>
+            <h3 id="heading_A"></h3>
+        </div> -->
+        <!-- <div>
+            <button id0="button_B">押してください</button>
+            <h3 id="heading_B"></h3>
+        </div> -->
+
+        <!-- <div>
+            <button>起動する</button>
+            <p>マシンは停止中です。</p>
+        </div> -->
+
+        <!-- <div>
+            <button>押してね</button>
+            <div id="greeting"></div>
+        </div> -->
+
+        <!-- <label for="weather">今日の天気を選択してください:</label>
+        <select id="weather">
+            <option value="">--選択してください--</option>
+            <option value="sunny">晴れ</option>
+            <option value="rainy">雨</option>
+            <option value="snowing">雪</option>
+            <option value="overcast">曇り</option>
+        </select>
+        <p></p> -->
+
+        <!-- <label for="theme">テーマを選んでください:</label>
+        <select id="theme">
+            <option value="white">白</option>
+            <option value="black">黒</option>
+        </select>
+
+        <h1>私のウェブサイト</h1> -->
+        <!-- <button>更新</button>
+        <canvas></canvas>
+        <style>
+            html{
+                width:100%;
+                height:inherit;
+                background:"ddd;"
+            }
+            canvas{
+                display:block;
+            }
+            body{
+                margin:0;
+            }
+            button{
+                position:absolute;
+                top:5px;
+                left:5px;
+            }
+        </style> -->
+
+        <!-- <button id="calculate">計算</button>
+        <button id="clear">クリア</button>
+        <pre id="results"></pre> -->
+
+        <!-- <label for="search">連絡先の名前: </label>
+        <input id="search" type="text" />
+        <button>検索</button>
+
+        <p></p> -->
+
+        <!-- <label for="number">数値を入力してください:</label>
+        <input id="number" type="number" />
+        <button>整数の平方を生成</button>
+
+        <p>出力:</p> -->
+
+        <section class="preview">
+
+        </section>
+
+        <!-- <canvas width="480" height="320">
+
+        </canvas> -->
+
+        <!-- <input id="textBox" type="text" />
+        <div id="output"></div> -->
+
+        <!-- <script>
+            const x = 1;
+
+            function a(){
+                const y = 2;
+                output(z);
+            }
+
+            function b(){
+                const z = 3;
+                output(y);
+            }
+
+            function output(value){
+                const para = document.createElement('p');
+                document.body.appendChild(para);
+                para.textContent = `value: ${value}`;
+            }
+        </script> -->
+
+        <!-- <script>
+            //関数１・3
+            const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada'];
+            const para = document.createElement("p");
+
+            // function chooseName(){
+            //     let randomIndex = Math.floor(Math.random()*names.length);
+            //     let randomName = names[randomIndex];
+            //     para.textContent = randomName;
+            // }
+            // chooseName();
+
+            function random(min,max){
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function chooseName(names){
+                let randomIndex = random(0,names.length - 1);
+                return names[randomIndex];
+            }
+
+            para.textContent = chooseName(names);
+
+            const section = document.querySelector('section');
+
+            section.appendChild(para);
+        </script> -->
+
+        <!-- <script>
+            //関数2
+            const canvas = document.querySelector('canvas');
+            const ctx = canvas.getContext('2d');
+
+            const x = 50;
+            const y = 60;
+            const width = 100;
+            const height = 75;
+            const color = 'blue';
+
+            function draw(){
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                ctx.rect(x,y,width,height);
+                ctx.fill();
+            }
+            draw();
+            const section = document.querySelector('section');
+        </script> -->
+
+        <script>
+            //関数4
+            const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada'];
+            const para = document.createElement("p");
+
+            // function isShort(name){
+            //     return name.length < 5;
+            // }
+
+            const shortNames = names.filter((name) => {
+                return name.length < 5;
+            });
+            para.textContent = shortNames;
+
+            const section = document.querySelector('section');
+            section.innerHTML = '';
+            section.appendChild(para);
+
+        </script>
+    </body>
+
+    <!-- <script>
+        const myArray = ['tomatoes', 'chick peas', 'onions', 'rice', 'black beans'];
+        const list = document.createElement('ul');
+
+        for(let i = 0; i<myArray.length; i++){
+            let listItem = document.createElement('li');
+            listItem.textContent = myArray[i];
+            list.appendChild(listItem);
+        }
+
+        const section = document.querySelector('section');
+        section.appendChild(list)
+    </script> -->
+
+    <!-- <script>
+        const name = "Mustafa";
+        const para = document.createElement('p');
+
+        const phonebook = [
+            { name : 'Chris', number : '1549'},
+            { name : 'Ji Kang', number : '9634'},
+            { name : 'Anne', number : '9065'},
+            { name : 'Francesca', number : '3001'},
+            { name : 'Mustafa', number : '6888'},
+            { name : 'Tina', number : '4312'},
+            { name : 'Bert', number : '7780'},
+            { name : 'Jada', number : '2282'},
+        ]
+            let i = 0;
+            while(i < phonebook.length){
+                if(phonebook[i].name === name){
+                    para.textContent = (`Name : ${phonebook[i].name} number : ${phonebook[i].number}`);
+                }
+                i++;
+            }
+        const section = document.querySelector('section');
+        section.appendChild(para);
+    </script> -->
+
+    <!-- <script>
+        let i = 500;
+        const para = document.createElement('p');
+
+        function isPrime(num){
+            for(let i = 2; i<num; i++){
+                if(num % i === 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        for(i = 500; i>=2; i--){
+            if(isPrime(i)){
+                para.textContent += `${i},`;
+            }
+        }
+
+        const section = document.querySelector('section');
+        section.appendChild(para);
+    </script> -->
+
+
+</html>
+
+<!-- <script>
+    const buttonA = document.querySelector("#button_A");
+    const headingA = document.querySelector("#heading_A");
+
+    let count = 1;
+
+    buttonA.onclick = () => {
+        buttonA.textContent = "もう一度!";
+        headingA.textContent = `${count}回クリックしました`;
+        count += 1;
+    };
+</scrip>
+
+
+
+
+<script>
+
+    const buttonB = document.querySelector("#button_B");
+    const headingB = document.querySelector("#heading_B");
+
+    buttonB.onclick = () => {
+        buttonB.textContent = "もう一度！";
+        headingB.textContent = "１回クリックしました";
+    };
+</script> -->
+
+
+
+
+<!-- <script>
+    myName = "Chris";
+
+    function logName(){
+        console.log(myName);
+    }
+    logName();
+    let myNameArray = ["Chris","Bob","Jim"];
+    console.log(myNameArray);
+    console.log(myNameArray[0]);
+
+
+    let dog = {name:"ポチ" , breed:"ダルメシアン"};
+    console.log(dog);
+    console.log(dog.name);
+
+    let myNumber = "500";
+    console.log(typeof myNumber);
+    myNumber = 500;
+    console.log(typeof myNumber);
+
+    const bird = {species:"kestrel"};
+    console.log(bird.species);
+    bird.species = "Striated Caracara";
+    console.log(bird.species);
+
+    const myInt = 5;
+    const myFloat = 6.667;
+    myInt;
+    myFloat;
+    console.log(typeof myInt);
+    console.log(typeof myFloat);
+
+    let myNumber2 = "74";
+    myNumber2 = Number(myNumber2) + 3;
+    console.log(myNumber2);
+
+    console.log(10+7);
+    console.log(9*8);
+    console.log(60%3);
+    const num1 = 10;
+    const num2 = 50;
+    console.log(9*num1);
+    console.log(num1 ** 3);
+    console.log(num2 / num1);
+    console.log(5+ 10 * 3);
+    console.log((num2 % 9) * num1);
+    console.log(num2 + num1 / 8 + 2);
+    console.log((num2 + num1) / (8 + 2));
+
+    let num3 = 4;
+    console.log(num3++);
+    console.log(num3);
+    let num4 = 6;
+    num4--;
+    console.log(num4);
+
+    let x = 3;
+    let y = 4;
+    console.log(x *= y);
+
+    const string = "革命はテレビでは放送されない。";
+    console.log(string);
+    const badString = string;
+    console.log(badString);
+
+    const single = '単一引用符';
+    const double = "二重引用符";
+    const backtick = `逆引用符`;
+
+    console.log(single);
+    console.log(double);
+    console.log(backtick);
+
+    const name = "Chris";
+    const greeting = `Hello, ${name}`;
+    console.log(greeting);
+
+    const one = "Hello, ";
+    const two ="how are you?";
+    const joined =`${one}${two}`;
+    console.log(joined);
+
+    const song = "fight the Youth";
+    const score = 9;
+    const highestScore = 10;
+    const output =`I like the song ${song}. I gave it a score of ${(score / highestScore) * 100}%.`;
+    console.log(output);
+
+    const bigmouth ='I\'ve got no right to take my p;ace...';
+    console.log(bigmouth);
+
+    const name2 = "フロント";
+    const number2 = 242;
+    console.log(name2 + number2);
+
+    const myString = "123";
+    const myNum = Number(myString);
+    console.log(typeof myNum);
+
+    const myNum2 =123;
+    const myString2 = String(myNum2);
+    console.log(typeof myString2);
+
+
+</script>
+
+<script>
+    const browserType = "mozilla";
+    console.log(browserType.length);
+    console.log(browserType[0]);
+    console.log(browserType[browserType.length-1]);;
+
+    if(browserType.includes("zilla")){
+        console.log("Found zilla!");
+    }else {
+        console.log("No zilla here!");
+    }
+
+    if(browserType.startsWith("zilla")){
+        console.log("Found zilla!");
+    } else {
+        console.log("No zilla here!");
+    }
+
+    if(browserType.endsWith("zilla")){
+        console.log("Found zilla!");
+    } else {
+        console.log("No zilla here!");
+    }
+
+    const tagline ="MDN - Resources for developers, by developers";
+    console.log(tagline.indexOf("developers"));
+    console.log(tagline.indexOf("x"));
+
+    const firstOccurrence = tagline.indexOf("developers");
+    const secondOccurrence = tagline.indexOf("developers", firstOccurrence + 1);
+
+    console.log(firstOccurrence);
+    console.log(secondOccurrence);
+
+    console.log(browserType.slice(1,4));
+    console.log(browserType.slice(2));
+
+    const radData = "My NaMe Is MuD";
+    console.log(radData.toLowerCase());
+    console.log(radData.toUpperCase());
+
+    const updated = browserType.replace("moz","van");
+
+    console.log(updated);
+    console.log(browserType);
+
+    let quote ="To be or not to be";
+    quote = quote.replaceAll("be","code");
+
+    console.log(quote);
+
+
+</script>
+
+<script>
+
+    const shopping = ["パン","牛乳","チーズ","ハム","麺"];
+    console.log(shopping);
+
+    const sequence =[1, 1, 2, 3, 5, 8, 13];
+    const random = ["tree", 795, [0, 1, 2]];
+
+    console.log(shopping.length);
+    console.log(shopping[0]);
+    shopping[0] = "タヒーニ";
+    console.log(shopping);
+    console.log(random[2][2]);
+
+    const birds = ["オウム","鷹","フクロウ"];
+    console.log(birds.indexOf("フクロウ"));
+    console.log(birds.indexOf("ウサギ"));
+
+    const cities = ["東京", "大阪"];
+    cities.push("広島");
+    console.log(cities);
+    const newLength = cities.push("福岡", "鹿児島");
+    console.log(cities);
+    console.log(newLength);
+    const removedCity = cities.pop();
+    console.log(cities);
+    console.log(removedCity);
+    cities.shift();
+    console.log(cities);
+    const index2 = cities.indexOf("大阪");
+    if(index2 !== -1){
+        cities.splice(index2, 1);
+    }
+    console.log(cities);
+    cities.unshift("札幌");
+    console.log(cities);
+
+    const birds2 = ["Parrot", "Falcon", "Owl"];
+
+    for(const bird of birds2){
+        console.log(bird);
+    }
+
+    function double2(number){
+        return number * 2;
+    }
+    const numbers = [5, 2, 7, 6];
+    const doubled = numbers.map(double2);
+    console.log(doubled); //[10, 4, 14, 12]
+
+    function isLong(city){
+        return city.length > 2;
+    }
+    const cities2 = ["東京", "名古屋", "大阪", "鹿児島"];
+    const longer = cities2.filter(isLong);
+    console.log(longer); //["名古屋", "鹿児島"]
+
+    const data ="札幌、仙台、東京、名古屋、大阪、福岡";
+    const cities3 = data.split("、");
+    console.log(cities3);
+    console.log(cities3.length);
+    console.log(cities3[0]);
+    console.log(cities3[1]);
+    console.log(cities[cities.length - 1]);
+
+    const commaSeparated = cities3.join("、");
+    console.log(commaSeparated);
+
+</script> -->
+
+
+
+
+
+
+<!-- <script>
+    const btn = document.querySelector("button");
+    const txt = document.querySelector("p");
+
+    btn.addEventListener("click", updateBtn);
+
+    function updateBtn(){
+        if(btn.textContent === "起動する"){
+            btn.textContent = "停止する";
+            txt.textContent = "マシンが起動しました。";
+        } else {
+            btn.textContent = "起動する";
+            txt.textContent = "マシンは停止中です。";
+        }
+    } -->
+
+
+<!-- </script> -->
+
+<!-- <script>
+    const button =document.querySelector("button");
+
+    function greet(){
+        const name = prompt("あなたの名前は？");
+        const greeting = document.querySelector("#greeting");
+        greeting.textContent = `${name}さん、こんにちは。初めまして！`;
+    }
+
+    button.addEventListener("click", greet);
+</script> -->
+
+<!-- <script>
+    let shoppingDone = false;
+    let childsAllowance;
+
+    if(shoppingDone === true) {
+        console.log(childsAllowance = 10);
+    }else{
+        console.log(childsAllowance = 5);
+    }
+
+
+
+
+</script> -->
+
+<!-- <script>
+    const select = document.querySelector("select");
+    const para = document.querySelector("p");
+
+    select.addEventListener("change", setWeather);
+
+    function setWeather(){
+        const choice = select.value;
+        const temperature = 35;
+
+        if(choice === "sunny"){
+            if(temperature < 30){
+                para.textContent = `外の気温は${temperature}度です - とてもいい天気です。`;
+            }else if(temperature >= 30) {
+                para.textContent = `外の気温は${temperature}度です - かなり暑いです！外に出る時は、日焼け止めを塗りましょう。`;
+            }
+        }else if (choice === "rainy"){
+            para.textContent =
+            "外は雨が降っています。レインコートと傘を忘れないようにして、できる限り室内で過ごしましょう。";
+        }else if(choice === "snowing"){
+            para.textContent =
+            "雪が降ってとても寒いです！室内で";
+        }else if(choice === "overcast"){
+            para.textContent =
+            "雨は降っていませんが、空はとても暗くなっています。";
+        }else {
+            para.textContent = "";
+        }
+    }
+</script> -->
+
+<!-- <script>
+    const select = document.querySelector("select");
+    const para = document.querySelector("p");
+
+    select.addEventListener("change",setWeather);
+
+    function setWeather(){
+        const choice = select.value;
+
+        switch (choice){
+            case "sunny":
+                para.textContent =
+                "今日はとてもいい天気です。";
+                break;
+            case "rainy":
+                para.textContent =
+                "外は雨が降っています。";
+                break;
+            case "snowing":
+                para.textContent =
+                "雪が降ってとても寒いです！";
+            case "overcast":
+                para.textContent =
+                "雨は降っていませんが、空はとても暗くなっています。";
+                break;
+            default:
+                para.textContent ="";
+        }
+    }
+</script> -->
+
+<!-- <script>
+    const select = document.querySelector("select");
+    const html = document.querySelector("html");
+    document.body.style.padding = "10px";
+
+    function update(bgColor, textColor) {
+        html.style.backgroundColor = bgColor;
+        html.style.color = textColor;
+    }
+
+    select.addEventListener("change",() =>
+        select.value === "black"
+        ? update("black", "white")
+        :update("white", "black"),
+    );
+</script> -->
+
+<!-- <script>
+    const btn = document.querySelector("button");
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+
+    document.addEventListener("DOMContentLoaded",() =>{
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+    });
+
+    function random(number){
+        return Math.floor(Math.random() * number);
+    }
+
+    function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(let i=0;i<100;i++){
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(200 0 0 / 50%)";
+            ctx.arc(
+                random(canvas.width),
+                random(canvas.height),
+                random(50),
+                0,
+                2*Math.PI,
+                );
+                ctx.fill();
+        }
+    }
+
+    btn.addEventListener("click",draw);
+</script>
+
+<script>
+    const cats = ["Leopard","Serval","Jaguar","Tiger","Caracal","Lion"];
+
+    for(const cat of cats){
+        console.log(cat);
+    }
+
+    function toUpper(string){
+        return string.toUpperCase();
+    }
+
+    const upperCats = cats.map(toUpper);
+
+    console.log(upperCats);
+
+    function lCat(cat){
+        return cat.startsWith("L");
+    }
+
+    const filtered = cats.filter(lCat);
+
+    console.log(filtered);
+</script> -->
+
+<!-- <script>
+    results = document.querySelector("#results");
+
+    function calculate(){
+        for(let i=1; i<10; i++){
+            const newResult = `${i} x ${i} = ${i*i}`;
+            results.textContent += `${newResult}\n`;
+        }
+        results.textContent += "\n完了!\n\n";
+    }
+
+    const calculateBtn = document.querySelector("#calculate");
+    const clearBtn = document.querySelector("#clear");
+
+    calculateBtn.addEventListener("click", calculate);
+    clearBtn.addEventListener("click",() => (results.textContent = ""));
+</script> -->
+
+<!-- <script>
+    const cats = ["Pete", "Biggles", "Jasmine"];
+
+    let myFavoriteCats = "My cats are called";
+
+    for(let i=0; i<cats.length; i++){
+        if(i === cats.length - 1){
+            myFavoriteCats += `and ${cats[i]}.`;
+        }else{
+            myFavoriteCats += `${cats[i]},`;
+        }
+    }
+
+    console.log(myFavoriteCats);
+</script> -->
+
+<!-- <script>
+const contacts = [
+    "クリス:2232322",
+    "サラ:3453456",
+    "ビル:7654322",
+    "メアリー:9998769",
+    "ダイアン:9384975",
+];
+
+const para = document.querySelector("p");
+const input = document.querySelector("input");
+const btn = document.querySelector("button");
+
+btn.addEventListener("click", () => {
+    const searchName = input.value.toLowerCase();
+    input.value = "";
+    input.focus();
+    para.textContent = "";
+    for (const contact of contacts) {
+        const splitContact = contact.split(":");
+        if (splitContact[0].toLowerCase() === searchName) {
+            para.textContent = `${splitContact[0]}の電話番号は${splitContact[1]}です。`;
+            break;
+        }
+    }
+    if(para.textContent === ""){
+        para.textContent = "連絡先が見つかりません。";
+    }
+});
+</script> -->
+
+<!-- <script>
+    const para = document.querySelector("p");
+    const input = document.querySelector("input");
+    const btn = document.querySelector("button");
+
+    btn.addEventListener("click",() =>{
+        para.textContent = "出力:";
+        const num = input.value;
+        input.value = "";
+        input.focus();
+        for(let i=1; i<=num; i++){
+            let sqRoot = Math.sqrt(i);
+            if(Math.floor(sqRoot) !== sqRoot){
+                continue;
+            }
+            para.textContent += `${i} `;
+        }
+    });
+</script>
+
+<script>
+    let i = 0;
+
+    while(i < cats.length){
+        if(i === cats.length - 1){
+            myFavoriteCats += `and ${cats[i]}.`;
+        }else{
+            myFavoriteCats += `${cats[i]}, `;
+        }
+
+        i++;
+    }
+
+    console.log(myFavoriteCats);
+
+    let x = 0;
+
+    do {
+        if(x === cats.length -1){
+            myFavoriteCats += `and ${cats[x]}.`;
+        }else{
+            myFavoriteCats += `${cats[x]}, `;
+        }
+
+        x++;
+    } while(x < cats.length);
+    console.log(myFavoriteCats);
+</script> -->
+
+<script>
+    // const myText = "I am a string";
+    // const newString = myText.replace("string", "sausage");
+    // console.log(newString);
+
+    // const myArray = ["I", "love", "chocolate", "frogs"];
+    // const madeAString = myArray.join(" ");
+    // console.log(madeAString);
+
+    // const myNumber = Math.random();
+
+    // function draw(){
+    //     ctx.clearRect(0,0,width,height);
+    //     for(let i=0; i<100; i++){
+    //         ctx.beginPath();
+    //         ctx.fillStyle = "rgb(255 0 0 / 50%)";
+    //         ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
+    //         ctx.fill();
+    //     }
+    //     draw();
+    // }
+
+        // function myFunction(){
+        //     alert("hello");
+        // }
+        // myFunction();
+
+        // function hello(name = "Chris"){
+        //     console.log(`Hello ${name}!`);
+        // }
+
+        // hello("Ari");
+        // hello();
+
+        // (function (){
+        //     alert("hello");
+        // });
+
+        // function logKey(event){
+        //     console.log(`"${event.key}" を押しました。`);
+        // }
+        // textBox.addEventListener("keydown",logKey);
+        // ↓　無名関数を利用
+        // textBox.addEventListener("keydown",function(event){
+        //     console.log(`"${event.key}" を押しました。`);
+        // });
+        // ↓ アロー関数を利用
+        // textBox.addEventListener("keydown",(event) => {
+        //     console.log(`"${event.key}" を押しました。`);
+        // });
+        // ↓ 引数が一つの場合()省略可
+        // textBox.addEventListener("keydown",event => {
+        //     console.log(`"${event.key}" を押しました。`);
+        // });
+
+        // const originals = [1,2,3];
+        // const doubled =originals.map(item => item * 2);
+        // console.log(doubled);
+
+        // function doubleItem(item){
+        //     return item * 2;
+        // }
+
+        // const textBox = document.querySelector("#textBox");
+        // const output = document.querySelector("#output");
+
+        // textBox.addEventListener("keydown", (event) => {
+        //     output.textContent = `"${event.key}" を押しました。`;
+        // });
+
+</script>
+
