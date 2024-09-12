@@ -91,13 +91,22 @@
             breed: 'Cymric',
             color: 'white',
             greeting: function(){
-                console.log('Meow!');
+                console.log(`Hello, said ${cat.name} the ${cat.breed}`);
             }
         }
 
+        const cat2 = {
+            name: 'kuro',
+            breed: 'Cymric',
+            color: 'black',
+            greeting: function(){
+                console.log(`Hello, said ${cat2.name} the ${cat2.breed}`)
+            }
+        }
         const catName = cat["name"];
         cat.greeting();
         cat.color = 'black';
+        cat2.greeting();
 
 
         const section = document.querySelector('section');

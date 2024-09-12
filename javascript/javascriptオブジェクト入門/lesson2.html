@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Object-oriented JavaScript example</title>
+        <style>
+            p{
+                color: purple;
+                margin: 0.5em 0;
+            }
+
+            *{
+                box-sizing: border-box;
+            }
+        </style>
+
+</head>
+<body>
+
+</body>
+
+<script>
+    const myObject= {
+        city: "Madrid",
+        greet(){
+            console.log(`Greetings from ${this.city}`);
+        },
+    };
+    myObject.greet(); //Greetings from Madrid
+
+
+
+    const myDate = new Date();
+    let object = myDate;
+    do {
+        object = Object.getPrototypeOf(object);
+        console.log(object);
+    }while (object);
+
+
+
+    const myDate2 = new Date(1995,11,17);
+    console.log(myDate2.getYear()); //95
+    myDate2.getYear = function(){
+        console.log("something else!");
+    };
+    myDate2.getYear(); //'something else!'
+
+
+    const personPrototype = {
+        greet(){
+            console.log("hello!");
+        },
+    };
+    const carl = Object.create(personPrototype);
+    carl.greet(); //hello!
+
+
+
+    const personPrototype2 = {
+        greet() {
+            console.log(`hello, my name is ${this.name}`);
+        },
+    };
+    function Person(name) {
+        this.name = name;
+    }
+    Object.assign(Person.prototype, personPrototype2);
+    const reuben = new Person("Reuben");
+    reuben.greet();
+
+    const irma = new Person("Irma");
+
+    console.log(Object.hasOwn(irma, "name")); //true
+    console.log(Object.hasOwn(irma, "greet")); //false
+</script>
+
+</html>
