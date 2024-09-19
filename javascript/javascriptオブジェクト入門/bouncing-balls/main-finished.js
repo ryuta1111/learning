@@ -6,6 +6,8 @@ const ctx = canvas.getContext("2d");
 const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
 
+let ballCountPara = document.querySelector("span");
+let ballCount = 0;
 
 //function to generate random number
 
@@ -82,11 +84,11 @@ class Ball extends Shape{
 
 class EvilCircle extends Shape{
     constructor(x, y){
-        super(x, y, 10, 10);
+        super(x, y, 20, 20);
         this.color = "white";
         this.size = 10;
 
-        window.addEventListener("keydown",(e) => {
+        window.addEventListener("keydown", (e) => {
             switch(e.key){
                 case "a":
                     this.x -= this.velX;
@@ -106,38 +108,41 @@ class EvilCircle extends Shape{
 
     draw(){
         ctx.beginPath();
+        ctx.lineWidth = 3;
         ctx.strokeStyle = this.color;
         ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-        ctx.lineWidth = 3;
         ctx.stroke();
     }
 
     checkBounds(){
         if((this.x + this.size) >= width){
-            this.x = this.size
-        }
-
-        if((this.x - this.size) <= 0){
             this.x = width - this.size;
         }
 
+        if((this.x - this.size) <= 0){
+            this.x = this.size;
+        }
+
         if((this.y + this.size) >= height){
-            this.y = this.size;
+            this.y = height - this.size;
         }
 
         if((this.y - this.size) <= 0){
-            this.y = height - this.size;
+            this.y = this.size;
         }
     }
 
     collisionDetect(){
         for(const ball of balls){
             if(ball.exists){
-                ball.draw();
-                ball.checkBounds();
+                const dx = this.x - ball.x;
+                const dy = this.y - ball.y;
+                const distance = Math.sqrt(dx*dx + dy*dy);
 
-                if(evilCircle, ball){
+                if(distance < this.size + ball.size){
                     ball.exists = false;
+                    ballCount--;
+                    updateBallCount();
                 }
             }
         }
@@ -159,22 +164,27 @@ while(balls.length < 25){
         randomRGB(),
         size,
     );
-
+    ballCount++;
+    updateBallCount();
     balls.push(ball);
 }
 
-let evilCircle = new EvilCircle(50,50);
+function updateBallCount(){
+    ballCountPara.textContent = ` ${ballCount}`;
+}
+
+const evilCircle = new EvilCircle(random(0 + 10, width - 10),random(0 + 10, height - 10));
 
 
 function loop(){
     ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
     ctx.fillRect(0, 0, width, height);
 
-    for(const ball of balls){
-        if(ball.exists){
-            ball.draw();
-            ball.update();
-            ball.collisionDetect();
+    for(let i = 0; i < balls.length; i++){
+        if(balls[i].exists){
+            balls[i].draw();
+            balls[i].update();
+            balls[i].collisionDetect();
         }
     }
     evilCircle.draw();
