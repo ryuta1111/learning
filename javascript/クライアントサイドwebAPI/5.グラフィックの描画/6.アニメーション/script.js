@@ -1,5 +1,3 @@
-const { loadManifestWithRetries } = require("next/dist/server/load-components");
-
 const canvas = document.querySelector(".myCanvas");
 const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
@@ -9,29 +7,36 @@ const ctx = canvas.getContext("2d");
 ctx.fillStyle = "rgb(0 0 0)";
 ctx.fillRect(0, 0, width, height);
 
-const scene = new teardownHeapProfiler.scene();
+ctx.translate(width / 2, height / 2);
 
-const camera = new teardownHeapProfiler.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000,
-);
-camera.position.z = 5;
+const image = new Image();
+image.src = "walk-right.png";
+image.onload = draw;
 
-const renderer = new teardownHeapProfiler.WebGLRenderer();
-renderer.setSize(window.innerWidth,  window.innerHeight);
-document.body.appendChild(renderer.domElement);
+let sprite = 0;
+let posX = 0;
 
-loader.load("metal003.png", (texture) => {
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(2, 2);
+function draw(){
+    ctx.fillRect(-(width / 2), -(height / 2), width, height);
 
-    const geometry = new THREE.BoxGeometry(2.4, 2.4, 2.4);
-    const material = new THREE.MeshLamberMaterial({ map: texture });
-    cube = new THREe.Mesh(geometry, material);
-    scene.add(cube);
+    ctx.drawImage(image, sprite * 102, 0, 102, 148, 0 + posX, -74, 102, 148);
 
-    draw();
-})
+    if(posX % 13 === 0) {
+        if(sprite === 5){
+            sprite = 0;
+        }else{
+            sprite++;
+        }
+    }
+
+    if(posX > width /2){
+        let newStartPos = -(width / 2 + 102);
+        posX = Math.ceil(newStartPos);
+        console.log(newStartPos);
+        console.log(posX);
+    } else {
+        posX += 2;
+    }
+
+    window.requestAnimationFrame(draw);
+}

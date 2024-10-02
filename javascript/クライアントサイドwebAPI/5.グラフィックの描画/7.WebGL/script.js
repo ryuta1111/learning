@@ -1,42 +1,47 @@
-const canvas = document.querySelector(".myCanvas");
-const width = (canvas.width = window.innerWidth);
-const height = (canvas.height = window.innerHeight);
+const scene = new THREE.Scene();
 
-const ctx = canvas.getContext("2d");
+const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000,
+);
+camera.position.z = 5;
 
-ctx.fillStyle = "rgb(0 0 0)";
-ctx.fillRect(0, 0, width, height);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth,  window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-ctx.translate(width / 2, height / 2);
+let cube;
 
-const image = new Image();
-image.src = "walk-right.png";
-image.onload = draw;
+const loader = new THREE.TextureLoader();
 
-let sprite = 0;
-let posX = 0;
+loader.load("metal003.png", (texture) => {
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(2, 2);
+
+    const geometry = new THREE.BoxGeometry(2.4, 2.4, 2.4);
+    const material = new THREE.MeshLambertMaterial( { map: texture } );
+    cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    draw();
+});
+
+const light = new THREE.AmbientLight("rgb(255 255 255)"); //soft white light
+scene.add(light);
+
+const spotLight = new THREE.SpotLight("rgb(255 255 255)");
+spotLight.position.set(100, 1000, 1000);
+spotLight.castShadow = true;
+scene.add(spotLight);
 
 function draw(){
-    ctx.fillRect(-(width / 2), -(height / 2), width, height);
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    renderer.render(scene, camera);
 
-    ctx.drawImage(image, sprite * 102, 0, 102, 148, 0 + posX, -74, 102, 148);
-
-    if(posX % 13 === 0) {
-        if(sprite === 5){
-            sprite = 0;
-        }else{
-            sprite++;
-        }
-    }
-
-    if(posX > width /2){
-        let newStartPos = -(width / 2 + 102);
-        posX = Math.ceil(newStartPos);
-        console.log(newStartPos);
-        console.log(posX);
-    } else {
-        posX += 2;
-    }
-
-    window.requestAnimationFrame(draw);
+    requestAnimationFrame(draw);
 }
+
