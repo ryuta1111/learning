@@ -2,6 +2,7 @@ import React from 'react';
 import defaultDataset from "./dataset"
 import './assets/styles/style.css';
 import { AnswersList, Chats } from './components/index';
+import FormDialog from './components/Forms/FormDialog';
 
 export default class App extends React.Component {
   constructor(props){
@@ -14,7 +15,11 @@ export default class App extends React.Component {
       open: false
     }
     this.selectAnswer = this.selectAnswer.bind(this)
+    this.handleClickOpen = this.handleClickOpen.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+
   }
+
 
   displayNextQuestion = (nextQuestionId) => {
     const chats = this.state.chats
@@ -35,6 +40,15 @@ export default class App extends React.Component {
       case (nextQuestionId === 'init'):
         setTimeout(() => this.displayNextQuestion(nextQuestionId), 500);
         break;
+      case (nextQuestionId === 'contact'):
+        this.handleClickOpen();
+        break;
+      case (/^https:*/.test(nextQuestionId)):
+        const a = document.createElement('a');
+        a.href = nextQuestionId;
+        a.target = '_blank';
+        a.click();
+        break;
       default:
         const chats = this.state.chats;
         chats.push({
@@ -51,32 +65,16 @@ export default class App extends React.Component {
     }
   }
 
-  // initAnswer = () => {
-  //   const initDataset = this.state.dataset[this.state.currentId];
-  //   const initAnswers = initDataset.answers;
-  //   this.setState({
-  //     answers: initAnswers
-  //   })
-  // }
+  handleClickOpen = () => {
+    this.setState({open: true});
+  };
 
-  // initChats = () => {
-  //   const initDataset = this.state.dataset[this.state.currentId];
-  //   const chat = {
-  //     text: initDataset.question,
-  //     type: 'question'
-  //   }
+  handleClose = () => {
+      this.setState({open: false});
+  };
 
-  //   const chats = this.state.chats;
-  //   chats.push(chat)
-
-  //   this.setState({
-  //     answers: chats
-  //   })
-  // }
 
   componentDidMount() {
-    // this.initChats();
-    // this.initAnswer();
     const initAnswer = "";
     this.selectAnswer(initAnswer, this.state.currentId)
   }
@@ -94,6 +92,7 @@ export default class App extends React.Component {
         <div className="c-box">
           <Chats chats={this.state.chats} />
           <AnswersList answers={this.state.answers} select={this.selectAnswer} />
+          <FormDialog open={this.state.open}  handleClose={this.handleClose} />
         </div>
 
       </section>
