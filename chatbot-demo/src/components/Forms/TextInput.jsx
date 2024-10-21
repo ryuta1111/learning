@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import TextField from '@mui/material/TextField';
 
 const textInput = (props) => {
@@ -15,4 +15,4 @@ const textInput = (props) => {
     )
 }
 
-export default textInput
+export default textInput;

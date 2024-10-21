@@ -3,7 +3,7 @@ import { makeStyles, createStyles } from '@mui/styles';
 import List from '@mui/material/List';
 import { Chat } from './index';
 
-const useStyles = makeStyles(() => (
+const useStyles = makeStyles(() =>
     createStyles({
         "chats": {
             height: 400,
@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => (
             overflow: 'auto'
         }
     })
-));
+);
 
 const Chats = (props) => {
     const classes = useStyles();
