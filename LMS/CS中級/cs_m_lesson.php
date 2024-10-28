@@ -9,7 +9,7 @@
 <body>
 
 <script>
- 
+
     function ShowAlart() {
     alert("Hello world!!");
     }
