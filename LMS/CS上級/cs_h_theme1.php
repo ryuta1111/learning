@@ -119,15 +119,15 @@ class SinglyLinkedListNode3{
 
 function deleteTail(?SinglyLinkedListNode3 $head){
     $current = $head;
-    $array = "";
+    $str = "";
     while($current->next !== null){
-        $array .= $current->data . "→";
+        $str .= $current->data . "→";
         $current = $current->next;
         if($current->next === null){
-            $array .= "END";
+            $str .= "END";
         }
     }
-    return $array;
+    return $str;
 }
 
 function SinglyLinkedList3(array $values): ?SinglyLinkedListNode3{
@@ -184,7 +184,7 @@ class SinglyLinkedListNode4{
     }
 }
 
-function findingMinNUm(?SinglyLinkedListNode4 $head):int{
+function findingMinNum(?SinglyLinkedListNode4 $head):int{
     $minValue = $head->data;
     $current = $head;
     $minIndex = 0;
@@ -248,5 +248,227 @@ echo findingMinNum($array).PHP_EOL;
 
 $array = SinglyLinkedList4([61,73,27,3001]);
 echo findingMinNum($array).PHP_EOL;
+
+?>
+
+
+
+<?php
+class SinglyLinkedList5{
+    public $data;
+    public ?SinglyLinkedList5 $next;
+
+    public function __construct($data){
+        $this->data = $data;
+        $this->next = null;
+    }
+}
+
+function linkedListSearch(?SinglyLinkedList5 $head, int $data):int{
+    $index = 0;
+    $current = $head;
+
+    while($current !== null){
+        if($current->data === $data){
+            return $index;
+        }
+        $current = $current->next;
+        $index++;
+    }
+    return -1;
+}
+
+function SinglyLinkedList5(array $values): ?SinglyLinkedList5{
+    if(empty($values) && empty($value)){
+        return null;
+    }
+
+    $head = new SinglyLinkedList5($values[0]);
+    $current = $head;
+
+    for($i=1; $i<count($values); $i++){
+        $current->next = new SinglyLinkedList5($values[$i]);
+        $current = $current->next;
+    }
+    return $head;
+}
+
+
+echo "問題5".PHP_EOL;
+$array = SinglyLinkedList5([1,3,4,5]);
+echo linkedListSearch($array,3).PHP_EOL;
+
+$array = SinglyLinkedList5([1,1,1,1]);
+echo linkedListSearch($array,1).PHP_EOL;
+
+$array = SinglyLinkedList5([1,6,3,63,68,9,5]);
+echo linkedListSearch($array,5).PHP_EOL;
+
+$array = SinglyLinkedList5([3,3,2,10,34,45,67,356]);
+echo linkedListSearch($array,67).PHP_EOL;
+
+$array = SinglyLinkedList5([20,-5,34,45,67,356,34,687,31,-34,5]);
+echo linkedListSearch($array,-5).PHP_EOL;
+
+$array = SinglyLinkedList5([71,8,16,33]);
+echo linkedListSearch($array,71).PHP_EOL;
+
+$array = SinglyLinkedList5([71,9,16,33]);
+echo linkedListSearch($array,686).PHP_EOL;
+
+$array = SinglyLinkedList5([101,54,822,93,131,1800,99]);
+echo linkedListSearch($array,1800).PHP_EOL;
+
+$array = SinglyLinkedList5([580,781]);
+echo linkedListSearch($array,781).PHP_EOL;
+
+$array = SinglyLinkedList5([2,4,52,108]);
+echo linkedListSearch($array,52).PHP_EOL;
+
+$array = SinglyLinkedList5([61,73,27,3001]);
+echo linkedListSearch($array,45).PHP_EOL;
+
+?>
+
+
+
+<?php
+class SinglyLinkedList6{
+    public $data;
+    public ?SinglyLinkedList6 $next;
+
+    public function __construct($data){
+        $this->data = $data;
+        $this->next = null;
+    }
+}
+
+function insertAtPosition(?SinglyLinkedList6 $head, int $position, int $data){
+    $newNode = new SinglyLinkedList6($data);
+    $index = 0;
+    $current = $head;
+
+    while($current->next !== null && $index < $position){
+        $current = $current->next;
+        $index++;
+    }
+    $newNode->next = $current->next;
+    $current->next = $newNode;
+
+    return $head;
+    }
+
+function SinglyLinkedList6(array $values): ?SinglyLinkedList6{
+    if(empty($values) && empty($value)){
+        return null;
+    }
+
+    $head = new SinglyLinkedList6($values[0]);
+    $current = $head;
+
+    for($i=1; $i<count($values); $i++){
+        $current->next = new SinglyLinkedList6($values[$i]);
+        $current = $current->next;
+    }
+    return $head;
+}
+
+function printLinkedList(?SinglyLinkedList6 $head): void{
+    $current = $head;
+    while($current->next !== null){
+        echo $current->data . " → ";
+        $current = $current->next;
+        if($current->next === null){
+            echo $current->data . " → END";
+        }
+    }
+
+}
+
+
+echo "問題6".PHP_EOL;
+$array = SinglyLinkedList6([2,4]);
+echo printLinkedList(insertAtPosition($array,0,5)).PHP_EOL;
+
+$array = SinglyLinkedList6([2,4]);
+echo printLinkedList(insertAtPosition($array,1,5)).PHP_EOL;
+
+$array = SinglyLinkedList6([2,10,34,45,67,356]);
+echo printLinkedList(insertAtPosition($array,2,5)).PHP_EOL;
+
+$array = SinglyLinkedList6([2,10,34,45,67,356]);
+echo printLinkedList(insertAtPosition($array,2,3)).PHP_EOL;
+
+$array = SinglyLinkedList6([2,10,34,45,67,356]);
+echo printLinkedList(insertAtPosition($array,5,3)).PHP_EOL;
+
+$array = SinglyLinkedList6([20,-5,34,45,67,356]);
+echo printLinkedList(insertAtPosition($array,34,50)).PHP_EOL;
+
+$array = SinglyLinkedList6([20,-5,34,45,67,356,34,687,31,-34,5]);
+echo printLinkedList(insertAtPosition($array,20,54)).PHP_EOL;
+
+$array = SinglyLinkedList6([20,-5,34,45,67,356,34,687,31,-34,5]);
+echo printLinkedList(insertAtPosition($array,4,54)).PHP_EOL;
+?>
+
+
+
+<?php
+class SinglyLinkedList7{
+    public $data;
+    public ?SinglyLinkedList7 $next;
+
+    public function __construct($data){
+        $this->data = $data;
+        $this->next = null;
+    }
+}
+
+function insertNodeInSorted(?SinglyLinkedList7 $head, int $data){
+    $newNode = new SinglyLinkedList7($data);
+    $current = $head;
+    $newNode->next = $current;
+    $current = $newNode;
+
+    return $head;
+    }
+
+function SinglyLinkedList7(array $values): ?SinglyLinkedList7{
+    if(empty($values) && empty($value)){
+        return null;
+    }
+
+    $head = new SinglyLinkedList7($values[0]);
+    $current = $head;
+
+    for($i=1; $i<count($values); $i++){
+        $current->next = new SinglyLinkedList7($values[$i]);
+        $current = $current->next;
+    }
+    return $head;
+}
+
+function printLinkedList2(?SinglyLinkedList7 $head){
+    $current = $head;
+    $str = "";
+    while($current->next !== null){
+        $str .= $current->data . " → ";
+        $current = $current->next;
+        if($current->next === null){
+            $str .= $current->data . " → END";
+        }
+    }
+    $array = explode("→",$str);
+    sort($array);
+    $newArray = implode("→",$array);
+    echo $newArray;
+}
+
+
+echo "問題7".PHP_EOL;
+$array = SinglyLinkedList7([2,10,34,45,67,356]);
+echo printLinkedList2(insertNodeInSorted($array, 3)).PHP_EOL;
+
 
 ?>
