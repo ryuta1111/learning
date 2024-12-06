@@ -195,6 +195,63 @@ function stockSpan(array $stocks):array{
 }
 
 echo "問題3";
-var_export(stockSpan([30,50,60,20,30,64,80]));
+var_export(stockSpan([30,50,60,20,30,64,80])) .PHP_EOL;
+
+var_export(stockSpan([24,5,67,60,24,64,23,536,345])) .PHP_EOL;
+
+var_export(stockSpan([200,85,40,60,40,65,90])) .PHP_EOL;
+
+var_export(stockSpan([30,45,20,100,235,300,4500,40,100])) .PHP_EOL;
+
+var_export(stockSpan([34,640,100,234,56,34,25,200,1020,160])) .PHP_EOL;
 
 ?>
+
+
+<?php
+function minWindowArrK(array $intArr, int $k): array{
+    $deque = [];
+    $result = [];
+
+    for($i=0; $i<$k; $i++){
+        while(!empty($deque) && $intArr[$deque[count($deque)-1]] >= $intArr[$i]){
+            array_pop($deque);
+        }
+        $deque[] = $i;
+    }
+
+    for($i=$k; $i<count($intArr); $i++){
+            $result[] = $intArr[$deque[0]];
+
+            if($deque[0] <= $i-$k){
+                array_shift($deque);
+            }
+
+            while(!empty($deque) && $intArr[$deque[count($deque)-1]] >= $intArr[$i]){
+                array_pop($deque);
+            }
+            $deque[] = $i;
+    }
+    $result[] = $intArr[$deque[0]];
+    return $result;
+}
+
+echo "問題4" .PHP_EOL;
+print_r(minWindowArrK([2,3,1,1,12,3,10],1)) .PHP_EOL;
+
+print_r(minWindowArrK([2,3,1,1,12,3,10],3)) .PHP_EOL;
+
+print_r(minWindowArrK([2,3,1,1,12,3,10],4)) .PHP_EOL;
+
+print_r(minWindowArrK([3,9,10,2,4,5],3)) .PHP_EOL;
+
+print_r(minWindowArrK([3,9,10,2,4,5],5)) .PHP_EOL;
+
+print_r(minWindowArrK([30,50,60,20,30,64,80],3)) .PHP_EOL;
+
+print_r(minWindowArrK([30,50,60,20,30,64,80],2)) .PHP_EOL;
+
+print_r(minWindowArrK([24,5,67,60,24,64,23,536,345],3)) .PHP_EOL;
+?>
+
+明日解説読む！！！！！！！！！！！
