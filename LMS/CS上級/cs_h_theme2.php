@@ -213,6 +213,7 @@ function minWindowArrK(array $intArr, int $k): array{
     $deque = [];
     $result = [];
 
+    //最初のウィンドウの処理
     for($i=0; $i<$k; $i++){
         while(!empty($deque) && $intArr[$deque[count($deque)-1]] >= $intArr[$i]){
             array_pop($deque);
@@ -220,6 +221,7 @@ function minWindowArrK(array $intArr, int $k): array{
         $deque[] = $i;
     }
 
+    //ウィンドウをスライド
     for($i=$k; $i<count($intArr); $i++){
             $result[] = $intArr[$deque[0]];
 
@@ -254,4 +256,41 @@ print_r(minWindowArrK([30,50,60,20,30,64,80],2)) .PHP_EOL;
 print_r(minWindowArrK([24,5,67,60,24,64,23,536,345],3)) .PHP_EOL;
 ?>
 
-明日解説読む！！！！！！！！！！！
+<?php
+function largestRectangle(array $h):int{
+    $stack = [];
+    $maxArea = 0;
+    $index = 0;
+    while($index < count($h)){
+        if(empty($stack) || $h[$index] >= $h[end($stack)]){
+            $stack[] = $index++;
+        }else{
+            $top = array_pop($stack);
+            $width = empty($stack) ? $index : $index - end($stack) - 1;
+            $maxArea = max($maxArea, $h[$top] * $width);
+        }
+    }
+    while(!empty($stack)){
+        $top = array_pop($stack);
+        $width = empty($stack) ? $index : $index - end($stack) - 1;
+        $maxArea = max($maxArea, $h[$top] * $width);
+    }
+    return $maxArea;
+}
+
+echo "問題5" .PHP_EOL;
+echo largestRectangle([3,2,3]) .PHP_EOL;
+
+echo largestRectangle([1,2,5,2,3,4]) .PHP_EOL;
+
+echo largestRectangle([1,2,3,4,5]) .PHP_EOL;
+
+echo largestRectangle([3,4,5,8,10,2,1,3,9]) .PHP_EOL;
+
+echo largestRectangle([1,2,1,3,5,2,3,4]) .PHP_EOL;
+
+echo largestRectangle([11,11,10,10,10]) .PHP_EOL;
+
+echo largestRectangle([8979,4570,6436,5083,7780,3269,5400,7579,2324,2116]) .PHP_EOL;
+
+?>
