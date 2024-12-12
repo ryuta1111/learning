@@ -206,26 +206,25 @@ class BinaryTree5
     }
 }
 
-class BinarySearchTree
-{
+class BinarySearchTree{
     public $root;
 
     public function __construct($nums){
-        $this->root = $this->sortedArrayToBST5($nums);
+        $this->root = $this->sortedArrayToBST($nums);
     }
 
-    private function sortedArrayToBST5($nums){
+    private function sortedArrayToBST($nums){
         if(count($nums) === 0) return null;
-        return $this->sortedArrayToBSTHelper5($nums, 0, count($nums)-1);
+        return $this->sortedArrayToBSTHelper($nums, 0, count($nums)-1);
     }
 
-    private function sortedArrayToBSTHelper5($arr, $start, $end){
+    private function sortedArrayToBSTHelper($arr, $start, $end){
         if($start > $end) return null;
 
         $mid = floor(($start + $end) / 2);
 
-        $left = $this->sortedArrayToBSTHelper5($arr, $start, $mid-1);
-        $right = $this->sortedArrayToBSTHelper5($arr, $mid+1, $end);
+        $left = $this->sortedArrayToBSTHelper($arr, $start, $mid-1);
+        $right = $this->sortedArrayToBSTHelper($arr, $mid+1, $end);
 
         return new BinaryTree5($arr[$mid], $left, $right);
     }
@@ -246,11 +245,19 @@ class BinarySearchTree
         }
     }
 
-    public function keyExists5($key){
+    public function keyExist($key){
         return $this->search($key) !== null;
     }
 }
 
-$balancedBST = sortedArrayToBST([1,2,3,4,5,6,7,8,9,10,11]);
+$keys = [1,2,3,4,5,6,7,8,9,10,11];
 
-print(($balancedBST->keyExists5(6)? "True" : "False").PHP_EOL);
+$balancedBST = new BinarySearchTree($keys);
+
+
+print(($balancedBST->keyExist(6)? "True" : "False").PHP_EOL);
+print(json_encode($balancedBST->search(6)).PHP_EOL);
+print(($balancedBST->keyExist(10)? "True" : "False").PHP_EOL);
+print(json_encode($balancedBST->search(10)).PHP_EOL);
+print(($balancedBST->keyExist(34)? "True" : "False").PHP_EOL);
+print(json_encode($balancedBST->search(34)).PHP_EOL);
