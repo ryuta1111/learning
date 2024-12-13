@@ -11,29 +11,79 @@ class BinaryTree{
     }
 }
 
-$result = [];
+function bstSearch(?BinaryTree $root, int $key): ?BinaryTree{
+    if($root === null){
+        return null;
+    }
 
-function bstSearch(?BinaryTree $root, int $key):?BinaryTree{
-    if($key === null) return $result[] = null;
+    if($root->data === $key){
+        return $root;
+    }
 
+    if($key < $root->data){
+        return bstSearch($root->left, $key);
+    } else {
+        return bstSearch($root->right, $key);
+    }
 }
 
 function bstSearchHelper($arr, $start, $end){
-    if($start === $end) return new BinaryTree($arr[$start]);
+    if($start > $end){
+        return null;
+    }
 
-    $mid = floor(($start + $end)/2);
+    $mid = floor(($start + $end) / 2);
 
-    $left = null;
-    if($mid-1 >= $start) $left = bstSearchHelper($arr, $start, $mid-1);
+    $left = bstSearchHelper($arr, $start, $mid-1);
+    $right = bstSearchHelper($arr, $mid+1, $end);
 
-    $right = null;
-    if($mid+1 <= $end) $right = bstSearchHelper($arr, $mid+1, $end);
-
-    $root = new BinaryTree($arr[$mid], $left, $right);
-    return $root;
+    return new BinaryTree($arr[$mid], $left, $right);
 }
 
-function toBinaryTree($nums){
-    if(count($nums) === 0) return null;
+function ToBinaryTree($nums){
+    if(count($nums) === 0){
+        return null;
+    }
+
+    $nums = array_filter($nums, fn($val)=>$val !== null);
+    sort($nums);
     return bstSearchHelper($nums, 0, count($nums)-1);
+}
+
+
+function treeToArray(?BinaryTree $root): array{
+    if($root === null){
+        return [null];
+    }
+
+    $queue = [$root];
+    $result = [];
+    while(!empty($queue)) {
+        $node = array_shift($queue);
+
+        if($node !== null){
+            $result[] = $node->data;
+            $queue[] = $node->left;
+            $queue[] = $node->right;
+        } else {
+            $result[] = null;
+        }
+    }
+
+    while(end($result) === null){
+        array_pop($result);
+    }
+    return $result;
+}
+
+$tree = toBinaryTree([0, -10, 5, null, -3, null, 9]);
+$keyToFind = 5;
+
+$resultNode = bstSearch($tree, $keyToFind);
+
+if($resultNode !== null) {
+    $subtreeArray = treeToArray($resultNode);
+    print_r($subtreeArray);
+}else{
+    echo "Key $keyTiFind not found in the BST" .PHP_EOL;
 }
