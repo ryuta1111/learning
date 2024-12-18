@@ -216,14 +216,14 @@ function treeToArray3(?BinaryTree3 $root): array{
 // テストケース
 
 echo "Test Case 1:\n";
-$tree2 = toBinaryTree3([0, -10, 5, null, -3, null, 9]);
-$minNode2 = minimumNode($tree2);
-print_r(treeToArray3($minNode2));
-
-echo "Test Case 2:\n";
-$tree1 = toBinaryTree3([5, 3, 6, 2, 4, null, 7]);
+$tree1 = toBinaryTree3([0, -10, 5, null, -3, null, 9]);
 $minNode1 = minimumNode($tree1);
 print_r(treeToArray3($minNode1));
+
+echo "Test Case 2:\n";
+$tree2 = toBinaryTree3([5, 3, 6, 2, 4, null, 7]);
+$minNode2 = minimumNode($tree2);
+print_r(treeToArray3($minNode2));
 
 echo "Test Case 3:\n";
 $tree3 = toBinaryTree3([-2, -17, 8, -18, -11, 3, 19, null, null, null, -4, null, null, null, 25]);
@@ -239,5 +239,112 @@ echo "Test Case 5:\n";
 $tree5 = toBinaryTree3([1, -5, 15, -9, -4, 10, 17, null, -6, null, 0, null, 14, 16, 19]);
 $minNode5 = minimumNode($tree5);
 print_r(treeToArray3($minNode5));
+
+?>
+
+
+<?php
+class BinaryTree4 {
+    public $data;
+    public ?BinaryTree4 $left;
+    public ?BinaryTree4 $right;
+
+    public function __construct($data, $left = null, $right = null) {
+        $this->data = $data;
+        $this->left = $left;
+        $this->right = $right;
+    }
+}
+
+//木構造を再帰的に構築するヘルパー関数
+function toBinaryTreeHelper4(array $arr, int $index): ?BinaryTree4{
+    if($index >= count($arr) || $arr[$index] === null){
+        return null;
+    }
+
+    $leftIndex = 2 * $index + 1;
+    $rightIndex = 2 * $index + 2;
+
+    return new BinaryTree4(
+        $arr[$index],
+        toBinaryTreeHelper4($arr, $leftIndex),
+        toBinaryTreeHelper4($arr, $rightIndex)
+    );
+}
+
+//配列から木を構築するメイン関数
+function toBinaryTree4(array $nums): ?BinaryTree4{
+    return toBinaryTreeHelper4($nums, 0);
+}
+
+
+//最小値を持つノードを取得する関数
+function maximumNode(?BinaryTree4 $root): ?BinaryTree4{
+    if($root === null) return null;
+
+    while($root->right !== null){
+        $root = $root->right;
+    }
+
+    return $root;
+}
+
+
+//木構造を配列に変換する関数
+function treeToArray4(?BinaryTree4 $root): array{
+    if($root === null) return [null];
+
+    $queue = [$root];
+    $result = [];
+
+    while(!empty($queue)){
+        $node = array_shift($queue);
+        if($node !== null){
+            $result[] = $node->data;
+            $queue[] = $node->left;
+            $queue[] = $node->right;
+        }else{
+            $result[] = null;
+        }
+    }
+
+    while(end($result) === null){
+        array_pop($result);
+    }
+
+    return $result;
+}
+
+// テストケース
+
+echo "Test Case 1:\n";
+$tree1 = toBinaryTree4([0, -10, 5, null, -3, null, 9]);
+$minNode1 = maximumNode($tree1);
+print_r(treeToArray4($minNode1));
+
+echo "Test Case 2:\n";
+$tree2 = toBinaryTree4([5, 3, 6, 2, 4, null, 7]);
+$minNode2 = maximumNode($tree2);
+print_r(treeToArray4($minNode2));
+
+echo "Test Case 3:\n";
+$tree2 = toBinaryTree4([5,3,7,2,4,6,9,null,null,null,null,null,null,8]);
+$minNode2 = maximumNode($tree2);
+print_r(treeToArray4($minNode2));
+
+echo "Test Case 4:\n";
+$tree3 = toBinaryTree4([-2, -17, 8, -18, -11, 3, 19, null, null, null, -4, null, null, null, 25]);
+$minNode3 = maximumNode($tree3);
+print_r(treeToArray4($minNode3));
+
+echo "Test Case 5:\n";
+$tree4 = toBinaryTree4([3, -3, 13, -7, 1, 6, 18, -10, -4, 0, 2, 5, 8, 15, 19]);
+$minNode4 = maximumNode($tree4);
+print_r(treeToArray4($minNode4));
+
+echo "Test Case 6:\n";
+$tree5 = toBinaryTree4([1, -5, 15, -9, -4, 10, 17, null, -6, null, 0, null, 14, 16, 19]);
+$minNode5 = maximumNode($tree5);
+print_r(treeToArray4($minNode5));
 
 ?>
